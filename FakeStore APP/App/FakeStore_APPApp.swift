@@ -11,7 +11,7 @@ import SwiftUI
 struct FakeStore_APPApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeScreen()
         }
     }
 }
