@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginScreen: View {
     @State private var userName: String = ""
     @State private var password: String = ""
+    @State private var showPassword: Bool = false
     var body: some View {
         ZStack {
             VStack(alignment: .center) {
@@ -20,7 +21,7 @@ struct LoginScreen: View {
                 CustomTextField(text: $userName, placeholder: "Enter your usename")
                     .padding(.horizontal)
                 
-                CustomSecureField(text: $password, placeholder: "Enter your password")
+                CustomSecureField(text: $password, isSecure: $showPassword, placeholder: "Enter your password")
                     .padding(.horizontal)
                 
                

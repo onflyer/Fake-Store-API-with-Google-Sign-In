@@ -10,6 +10,8 @@ import SwiftUI
 struct CustomSecureField: View {
     
     @Binding var text: String
+    @Binding var isSecure: Bool
+    
     let placeholder: String
     
     @FocusState var focused: Bool
@@ -18,12 +20,19 @@ struct CustomSecureField: View {
         let isActive = focused || text.count > 0
         
         ZStack(alignment: isActive ? .topLeading : .center) {
-            SecureField("", text: $text)
-                .frame(height: 24)
-                .font(.system(size: 16, weight: .regular))
-                .opacity(isActive ? 1 : 0)
-                .offset(y: 7)
-                .focused($focused)
+            ZStack {
+                if isSecure {
+                    SecureField("", text: $text)
+                        
+                } else {
+                    TextField("", text: $text)
+                }
+            }
+            .frame(height: 24)
+            .font(.system(size: 16, weight: .regular))
+            .opacity(isActive ? 1 : 0)
+            .offset(y: 7)
+            .focused($focused)
             
             HStack {
                 Text(placeholder)
@@ -46,9 +55,19 @@ struct CustomSecureField: View {
             RoundedRectangle(cornerRadius: 12)
                 .stroke(focused ? .black.opacity(0.6) : .black.opacity(0.2), lineWidth: 2)
         }
+        .overlay(alignment: .trailing) {
+            Button(action: {
+                            isSecure.toggle()
+                        }) {
+                            Image(systemName: isSecure ? "eye.slash" : "eye")
+                                .foregroundColor(.gray)
+                        }
+                        .padding(.trailing, 8)
+                    
+        }
     }
 }
 
 #Preview {
-    CustomSecureField(text: .constant("password"), placeholder: "Enter your password")
+    CustomSecureField(text: .constant("password"), isSecure: .constant(false), placeholder: "Enter your password")
 }
