@@ -12,21 +12,39 @@ struct LoginScreen: View {
     @State private var password: String = ""
     @State private var showPassword: Bool = false
     var body: some View {
-        ZStack {
-            VStack(alignment: .center) {
-                Image("logo")
-                Text("Fake store")
+        
+        
+            Spacer()
+            VStack(alignment: .center, spacing: 10) {
+                    Text("Welcome")
                     .font(.system(size: 40, weight: .heavy, design: .rounded))
+                    .foregroundStyle(.black.opacity(0.3))
+                    Image("logo")
+                        .padding(.bottom)
+                    
+                    CustomTextField(text: $userName, placeholder: "Enter your usename")
+                        .padding(.horizontal)
+                    
+                    CustomSecureField(text: $password, isSecure: $showPassword, placeholder: "Enter your password")
+                        .padding(.horizontal)
                 
-                CustomTextField(text: $userName, placeholder: "Enter your usename")
-                    .padding(.horizontal)
+                Button("Login") {
+                    
+                }
+                .foregroundStyle(.white)
+                .frame(width: 200, height: 56)
+                .background(Color.green)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+                .padding()
                 
-                CustomSecureField(text: $password, isSecure: $showPassword, placeholder: "Enter your password")
-                    .padding(.horizontal)
-                
-               
+                    
+                   
             }
-        }
+            Spacer()
+      
+        
+        
+        
 
     }
 }
