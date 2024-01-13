@@ -10,10 +10,7 @@ import SwiftUI
 struct HomeScreen: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("Home screen")
         }
         .padding()
     }
