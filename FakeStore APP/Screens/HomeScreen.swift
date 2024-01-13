@@ -15,9 +15,7 @@ struct HomeScreen: View {
             Text("Home screen")
             
             Button("Sign out") {
-                withAnimation {
-                    session.signOut()
-                }
+                session.signOut()
             }
             .foregroundStyle(.white)
                 .frame(width: 200, height: 56)
@@ -32,4 +30,5 @@ struct HomeScreen: View {
 
 #Preview {
     HomeScreen()
+        .environmentObject(SessionManager())
 }

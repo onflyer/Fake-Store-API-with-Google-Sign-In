@@ -8,11 +8,56 @@
 import SwiftUI
 
 struct OnboardingScreen: View {
+    @StateObject private var manager = OnboardingManager()
+    @State private var showButton = false
+    let action: () -> Void
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Color.green.opacity(0.5).ignoresSafeArea()
+            
+            if !manager.items.isEmpty {
+                
+                TabView {
+                    
+                    ForEach(manager.items) { item in
+                        OnboardingView(item: item)
+                            .onAppear {
+                                if item == manager.items.last {
+                                    withAnimation(.spring().delay(0.25)) {
+                                        showButton = true
+                                    
+                                    }
+                                }
+                            }
+                            .overlay(alignment: .bottom) {
+                                if showButton {
+                                    Button("Next") {
+                                        action()
+                                    }
+                                    .foregroundStyle(.green.opacity(0.5))
+                                    .frame(width: 200, height: 56)
+                                    .background(Color.white)
+                                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                                    .offset(y: 70)
+                                    .transition(.scale.combined(with: .opacity))
+                                }
+                                
+
+                            }
+                        }
+                }
+                .tabViewStyle(.page)
+                .indexViewStyle(.page(backgroundDisplayMode: .always))
+
+            }
+        }
+        .onAppear {
+            manager.load()
+        }
     }
 }
 
 #Preview {
-    OnboardingScreen()
+    OnboardingScreen{}
 }

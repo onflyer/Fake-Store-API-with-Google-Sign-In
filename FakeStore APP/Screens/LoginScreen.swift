@@ -31,9 +31,7 @@ struct LoginScreen: View {
                         .padding(.horizontal)
                 
                 Button("Login") {
-                    withAnimation {
-                        session.signIn()
-                    }
+                    session.signIn()
                 }
                 .foregroundStyle(.white)
                 .frame(width: 200, height: 56)
@@ -55,4 +53,5 @@ struct LoginScreen: View {
 
 #Preview {
     LoginScreen()
+        .environmentObject(SessionManager())
 }

@@ -12,7 +12,7 @@ struct FakeStore_APPApp: App {
     
     var body: some Scene {
         WindowGroup {
-           MainAppScreen()
+          MainAppScreen()
         }
     }
 }
