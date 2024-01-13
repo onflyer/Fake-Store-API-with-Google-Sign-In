@@ -40,7 +40,7 @@ final class RegistrationManager: ObservableObject {
         error = user.username.isEmpty ? .emptyUsername : nil
     }
     
-    func validateBio() {
+    func validatePassword() {
         hasError = user.password.isEmpty
         error = user.password.isEmpty ? .emptyPassword : nil
     }
