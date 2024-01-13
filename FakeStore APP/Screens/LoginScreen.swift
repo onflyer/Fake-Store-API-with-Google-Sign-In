@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct LoginScreen: View {
+    @EnvironmentObject var session: SessionManager
+    
     @State private var userName: String = ""
     @State private var password: String = ""
     @State private var showPassword: Bool = false
@@ -29,7 +31,9 @@ struct LoginScreen: View {
                         .padding(.horizontal)
                 
                 Button("Login") {
-                    
+                    withAnimation {
+                        session.signIn()
+                    }
                 }
                 .foregroundStyle(.white)
                 .frame(width: 200, height: 56)

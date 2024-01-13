@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct FakeStore_APPApp: App {
+    
     var body: some Scene {
         WindowGroup {
-            HomeScreen()
+           MainAppScreen()
         }
     }
 }

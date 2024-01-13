@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct HomeScreen: View {
+    @EnvironmentObject var session: SessionManager
+    
     var body: some View {
         VStack {
             Text("Home screen")
             
             Button("Sign out") {
-                
+                withAnimation {
+                    session.signOut()
+                }
             }
             .foregroundStyle(.white)
                 .frame(width: 200, height: 56)

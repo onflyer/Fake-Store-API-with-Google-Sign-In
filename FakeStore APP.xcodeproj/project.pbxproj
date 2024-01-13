@@ -13,8 +13,10 @@
 		3B0BB6B92B52A1C900D6882F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B0BB6B82B52A1C900D6882F /* Preview Assets.xcassets */; };
 		3B0BB6C42B52A51600D6882F /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0BB6C32B52A51600D6882F /* LoginScreen.swift */; };
 		3B0BB6C62B52A8FA00D6882F /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0BB6C52B52A8FA00D6882F /* CustomTextField.swift */; };
-		3B0BB6CC2B52AE4C00D6882F /* FormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0BB6CB2B52AE4C00D6882F /* FormField.swift */; };
 		3B0BB6CE2B52B4A200D6882F /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0BB6CD2B52B4A200D6882F /* CustomSecureField.swift */; };
+		3B0BB6D12B52C5E300D6882F /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0BB6D02B52C5E300D6882F /* SessionManager.swift */; };
+		3B0BB6D52B52C78300D6882F /* MainAppScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0BB6D42B52C78300D6882F /* MainAppScreen.swift */; };
+		3B0BB6D72B52CA3200D6882F /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0BB6D62B52CA3200D6882F /* OnboardingScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,8 +27,10 @@
 		3B0BB6B82B52A1C900D6882F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3B0BB6C32B52A51600D6882F /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		3B0BB6C52B52A8FA00D6882F /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
-		3B0BB6CB2B52AE4C00D6882F /* FormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormField.swift; sourceTree = "<group>"; };
 		3B0BB6CD2B52B4A200D6882F /* CustomSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureField.swift; sourceTree = "<group>"; };
+		3B0BB6D02B52C5E300D6882F /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		3B0BB6D42B52C78300D6882F /* MainAppScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppScreen.swift; sourceTree = "<group>"; };
+		3B0BB6D62B52CA3200D6882F /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +92,7 @@
 		3B0BB6C02B52A35700D6882F /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				3B0BB6CB2B52AE4C00D6882F /* FormField.swift */,
+				3B0BB6CF2B52C5CD00D6882F /* SessionManager */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -105,10 +109,20 @@
 		3B0BB6C22B52A4E000D6882F /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				3B0BB6D42B52C78300D6882F /* MainAppScreen.swift */,
 				3B0BB6B32B52A1C800D6882F /* HomeScreen.swift */,
 				3B0BB6C32B52A51600D6882F /* LoginScreen.swift */,
+				3B0BB6D62B52CA3200D6882F /* OnboardingScreen.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		3B0BB6CF2B52C5CD00D6882F /* SessionManager */ = {
+			isa = PBXGroup;
+			children = (
+				3B0BB6D02B52C5E300D6882F /* SessionManager.swift */,
+			);
+			path = SessionManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,9 +195,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B0BB6CC2B52AE4C00D6882F /* FormField.swift in Sources */,
 				3B0BB6C62B52A8FA00D6882F /* CustomTextField.swift in Sources */,
 				3B0BB6B42B52A1C800D6882F /* HomeScreen.swift in Sources */,
+				3B0BB6D52B52C78300D6882F /* MainAppScreen.swift in Sources */,
+				3B0BB6D12B52C5E300D6882F /* SessionManager.swift in Sources */,
+				3B0BB6D72B52CA3200D6882F /* OnboardingScreen.swift in Sources */,
 				3B0BB6B22B52A1C800D6882F /* FakeStore_APPApp.swift in Sources */,
 				3B0BB6CE2B52B4A200D6882F /* CustomSecureField.swift in Sources */,
 				3B0BB6C42B52A51600D6882F /* LoginScreen.swift in Sources */,
