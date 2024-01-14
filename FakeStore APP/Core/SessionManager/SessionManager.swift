@@ -11,6 +11,7 @@ final class SessionManager: ObservableObject {
     
     enum UserDefaultKeys {
         static let hasSeenOnboarding = "hasSeenOnboarding"
+        static let hasCompletedSignUpFlow = "hasCompletedSignUpFlow"
     }
     
     enum CurrentState {
@@ -32,6 +33,7 @@ final class SessionManager: ObservableObject {
     func register() {
         //MARK: API CALL FUNCTION FOR LOGIN
         signIn()
+        UserDefaults.standard.setValue(true, forKey: UserDefaultKeys.hasCompletedSignUpFlow)
     }
     
     func completeOnboarding() {
@@ -40,12 +42,21 @@ final class SessionManager: ObservableObject {
     }
     
     func configureCurrentState() {
+        
+        /**
+         - User closes the app during the onboarding phase > Resume the app from the onboarding screens
+         - User closes the app during the sign up phase > Resume the app from the sign up screens
+         - User closes the app after viewing onboarding and sign up phase > Resume the app from the log in screen
+         */
+        
+        let hasCompletedSignUpFlow = UserDefaults.standard.bool(forKey: UserDefaultKeys.hasCompletedSignUpFlow)
         let hasCompletedOnboarding = UserDefaults.standard.bool(forKey: UserDefaultKeys.hasSeenOnboarding)
         
-        if hasCompletedOnboarding {
+        
+        if hasCompletedSignUpFlow {
             currentState = .loggedOut
         } else {
-            currentState = .onboarding
+            currentState = hasCompletedOnboarding ? .signUp : .onboarding
         }
     }
 }
