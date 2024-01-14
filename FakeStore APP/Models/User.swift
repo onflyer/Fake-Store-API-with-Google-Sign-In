@@ -8,6 +8,12 @@
 import Foundation
 
 struct User {
-    var username: String
+    var name: String
+    var email: String
     var password: String
+
+    
+    var avatarUrl: URL {
+        return URL(string: "https://api.multiavatar.com/\(name).png")!
+    }
 }

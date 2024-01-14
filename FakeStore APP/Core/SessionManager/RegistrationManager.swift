@@ -10,12 +10,13 @@ import Foundation
 final class RegistrationManager: ObservableObject {
     
     enum Screen: Int,CaseIterable {
-        case username
+        case name
+        case email
         case password
     }
     
     @Published var active: Screen = Screen.allCases.first!
-    @Published var user = User(username: "", password: "")
+    @Published var user = User(name: "", email: "", password: "")
     @Published var isSecure = true
     
     @Published var hasError: Bool = false
@@ -34,10 +35,14 @@ final class RegistrationManager: ObservableObject {
             active = screen
         }
     }
+    func validateName() {
+        hasError = user.name.isEmpty
+        error = user.name.isEmpty ? .emptyName : nil
+    }
     
     func validateUsername() {
-        hasError = user.username.isEmpty
-        error = user.username.isEmpty ? .emptyUsername : nil
+        hasError = user.email.isEmpty
+        error = user.email.isEmpty ? .emptyUsername : nil
     }
     
     func validatePassword() {
@@ -48,15 +53,19 @@ final class RegistrationManager: ObservableObject {
 
 extension RegistrationManager {
     enum RegistrationError: LocalizedError {
+        case emptyName
         case emptyUsername
         case emptyPassword
         
         var errorDescription: String? {
             switch self {
+            case .emptyName:
+                return "Name cannot be empty"
             case .emptyUsername:
                 return "Username cannot be empty!!!"
             case .emptyPassword:
                 return "Password cannot be empty!!!"
+            
             }
         }
     }

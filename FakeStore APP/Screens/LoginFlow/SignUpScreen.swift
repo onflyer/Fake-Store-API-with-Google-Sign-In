@@ -17,13 +17,21 @@ struct SignUpScreen: View {
     var body: some View {
         ZStack {
             TabView(selection: $manager.active) {
-                UsernameView(text: $manager.user.username, hasError: $manager.hasError, action: {
+                NameView(text: $manager.user.name, hasError: $manager.hasError) {
+                    manager.validateName()
+                    if !manager.hasError {
+                        manager.next()
+                    }
+                }
+                .tag(RegistrationManager.Screen.name)
+                
+                EmailView(text: $manager.user.email, hasError: $manager.hasError, action: {
                     manager.validateUsername()
                     if !manager.hasError {
                         manager.next()
                     }
                 })
-                    .tag(RegistrationManager.Screen.username)
+                    .tag(RegistrationManager.Screen.email)
                 PasswordView(action: {
                     manager.validatePassword()
                     //TODO: HANDLE REGISTRATION

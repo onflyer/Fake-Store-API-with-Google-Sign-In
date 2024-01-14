@@ -1,30 +1,34 @@
 //
-//  UsernameView.swift
+//  NameView.swift
 //  FakeStore APP
 //
-//  Created by Aleksandar Milidrag on 1/13/24.
+//  Created by Aleksandar Milidrag on 1/14/24.
 //
 
 import SwiftUI
 
-struct UsernameView: View {
+struct NameView: View {
+    
     @Binding var text: String
     @Binding var hasError: Bool
     
     let action: () -> Void
+    
     var body: some View {
         ZStack {
             Color.green.opacity(0.5).ignoresSafeArea()
             VStack {
-             Image(systemName: "person.fill.badge.plus")
+             Image(systemName: "person.crop.circle.badge.plus")
                     .resizable()
+                    .scaledToFit()
                     .frame(width: 100, height: 100)
                     .foregroundStyle(.white)
-            Text("Username")
+                    
+            Text("Name")
                     .font(.system(size: 30,weight: .bold, design: .rounded))
                     .foregroundStyle(.white)
                 
-                CustomTextField(text: $text, placeholder: "Please enter a username", hasError: $hasError)
+                CustomTextField(text: $text, placeholder: "Please enter your name", hasError: $hasError)
                     .padding(.horizontal)
                 
                 Button("Next") {
@@ -39,11 +43,13 @@ struct UsernameView: View {
             }
         }
         
+        
     }
+
 }
 
 #Preview {
-    UsernameView(text: .constant(""), hasError: .constant(true)) {
+    NameView(text: .constant("name"), hasError: .constant(false), action: {
         
-    }
+    })
 }
