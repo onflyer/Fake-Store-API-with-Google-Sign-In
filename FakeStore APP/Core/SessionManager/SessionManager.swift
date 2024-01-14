@@ -17,6 +17,7 @@ final class SessionManager: ObservableObject {
         case loggedIn
         case loggedOut
         case onboarding
+        case signUp
     }
     
     @Published private (set) var currentState: CurrentState?
@@ -28,9 +29,13 @@ final class SessionManager: ObservableObject {
     func signOut() {
         currentState = .loggedOut
     }
+    func register() {
+        //MARK: API CALL FUNCTION FOR LOGIN
+        signIn()
+    }
     
     func completeOnboarding() {
-        currentState = .loggedOut
+        currentState = .signUp
         UserDefaults.standard.setValue(true, forKey: UserDefaultKeys.hasSeenOnboarding)
     }
     

@@ -26,6 +26,7 @@ struct PasswordView: View {
                 
                 CustomSecureField(text: $text, isSecure: $isSecure, placeholder: "Please enter a password")
                     .padding(.horizontal)
+                    
                 
                 Button("Register") {
                    action()

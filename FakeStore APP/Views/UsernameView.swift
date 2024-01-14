@@ -9,6 +9,7 @@ import SwiftUI
 
 struct UsernameView: View {
     @Binding var text: String
+    @Binding var hasError: Bool
     
     let action: () -> Void
     var body: some View {
@@ -23,7 +24,7 @@ struct UsernameView: View {
                     .font(.system(size: 30,weight: .bold, design: .rounded))
                     .foregroundStyle(.white)
                 
-                CustomTextField(text: $text, placeholder: "Please enter a username")
+                CustomTextField(text: $text, placeholder: "Please enter a username", hasError: $hasError)
                     .padding(.horizontal)
                 
                 Button("Next") {
@@ -42,7 +43,7 @@ struct UsernameView: View {
 }
 
 #Preview {
-    UsernameView(text: .constant("")) {
+    UsernameView(text: .constant(""), hasError: .constant(true)) {
         
     }
 }

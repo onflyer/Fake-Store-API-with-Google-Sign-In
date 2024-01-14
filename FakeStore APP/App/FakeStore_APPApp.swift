@@ -9,10 +9,11 @@ import SwiftUI
 
 @main
 struct FakeStore_APPApp: App {
-    
+    @StateObject private var session = SessionManager()
     var body: some Scene {
         WindowGroup {
           MainAppScreen()
+                .environmentObject(session)
         }
     }
 }

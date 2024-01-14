@@ -13,6 +13,7 @@ struct LoginScreen: View {
     @State private var userName: String = ""
     @State private var password: String = ""
     @State private var showPassword: Bool = false
+    @State private var hasError: Bool = false
     var body: some View {
         
         
@@ -24,7 +25,7 @@ struct LoginScreen: View {
                     Image("logo")
                         .padding(.bottom)
                     
-                    CustomTextField(text: $userName, placeholder: "Enter your usename")
+                CustomTextField(text: $userName, placeholder: "Enter your usename", hasError: $hasError )
                         .padding(.horizontal)
                     
                     CustomSecureField(text: $password, isSecure: $showPassword, placeholder: "Enter your password")

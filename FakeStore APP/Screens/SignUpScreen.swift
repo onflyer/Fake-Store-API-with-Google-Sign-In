@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct SignUpScreen: View {
+    @EnvironmentObject var session: SessionManager
     @StateObject private var manager = RegistrationManager()
     @State private var showPreviousButton: Bool = false
+    @State private var isRegistering: Bool = false
+    
     
     var body: some View {
         ZStack {
             TabView(selection: $manager.active) {
-                UsernameView(text: $manager.user.username, action: {
+                UsernameView(text: $manager.user.username, hasError: $manager.hasError, action: {
                     manager.validateUsername()
                     if !manager.hasError {
                         manager.next()
@@ -24,13 +27,29 @@ struct SignUpScreen: View {
                 PasswordView(action: {
                     manager.validatePassword()
                     //TODO: HANDLE REGISTRATION
+                    isRegistering = true
                     
+                    Task {
+                        try await Task.sleep(nanoseconds: 2_000_000_000)
+                        isRegistering = false
+                        session.register()
+                    }
+                
                 }, text: $manager.user.password, isSecure: $manager.isSecure)
                     .tag(RegistrationManager.Screen.password)
             }
             .animation(.easeInOut, value: manager.active)
             .tabViewStyle(.page(indexDisplayMode: .never))
         }
+        .overlay {
+            if isRegistering {
+                Color.black.opacity(0.4).ignoresSafeArea()
+                ProgressView()
+                    .tint(.white)
+            }
+        }
+        .animation(.easeInOut, value: isRegistering)
+
         .ignoresSafeArea()
         .overlay(alignment: .topLeading, content: {
             if showPreviousButton {
@@ -66,4 +85,5 @@ struct SignUpScreen: View {
 
 #Preview {
     SignUpScreen()
+        .environmentObject(SessionManager())
 }

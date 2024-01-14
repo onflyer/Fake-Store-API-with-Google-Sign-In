@@ -8,22 +8,23 @@
 import SwiftUI
 
 struct MainAppScreen: View {
-    @StateObject private var session = SessionManager()
+    @EnvironmentObject var session: SessionManager
     
     var body: some View {
         ZStack {
         switch session.currentState {
         case .loggedIn:
             HomeScreen()
-                .environmentObject(session)
                 .transition(.opacity)
         case .loggedOut:
             LoginScreen()
-                .environmentObject(session)
                 .transition(.opacity)
         case .onboarding:
             OnboardingScreen(action: session.completeOnboarding)
                 .transition(.opacity)
+        case .signUp:
+            SignUpScreen()
+                .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .opacity))
         default:
             Color.green.opacity(0.5).ignoresSafeArea()
             }

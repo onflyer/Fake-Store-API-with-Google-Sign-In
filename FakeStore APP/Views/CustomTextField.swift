@@ -11,6 +11,7 @@ struct CustomTextField: View {
     
     @Binding var text: String
     let placeholder: String
+    @Binding var hasError: Bool
     
     @FocusState var focused: Bool
     
@@ -46,10 +47,24 @@ struct CustomTextField: View {
             RoundedRectangle(cornerRadius: 12)
                 .stroke(focused ? .black.opacity(0.6) : .black.opacity(0.2), lineWidth: 2)
         }
+        .overlay {
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(hasError ? .red.opacity(0.6) : .black.opacity(0.0), lineWidth: 2)
+            if hasError {
+                Text("Username cannot be empty")
+                    .foregroundStyle(.red.opacity(0.6))
+                    .offset(x: -75, y: 43)
+            }
+        }
+        
     }
 }
 
 
 #Preview {
-    CustomTextField(text: .constant("Username"), placeholder: "Enter your username")
+    CustomTextField(text: .constant("Username"), placeholder: "Enter your username", hasError: .constant(true))
+        
+}
+#Preview {
+    CustomTextField(text: .constant("Username"), placeholder: "Enter your username", hasError: .constant(false))
 }
