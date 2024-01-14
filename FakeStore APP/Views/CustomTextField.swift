@@ -53,7 +53,8 @@ struct CustomTextField: View {
             if hasError {
                 Text("Username cannot be empty")
                     .foregroundStyle(.red.opacity(0.6))
-                    .offset(x: -75, y: 43)
+                    .font(.footnote)
+                    .offset(x: -81, y: 37)
             }
         }
         
