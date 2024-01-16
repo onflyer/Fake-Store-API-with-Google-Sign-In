@@ -49,6 +49,10 @@ final class RegistrationManager: ObservableObject {
         hasError = user.password.isEmpty
         error = user.password.isEmpty ? .emptyPassword : nil
     }
+    
+    func fetchCreateUser() async {
+        
+    }
 }
 
 extension RegistrationManager {
