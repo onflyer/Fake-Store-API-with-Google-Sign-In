@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct PasswordView: View {
-    let action: () -> Void
+   
     @Binding var text: String
     @Binding var isSecure: Bool
+    let action: () -> Void
     
     var body: some View {
         ZStack {
@@ -43,7 +44,7 @@ struct PasswordView: View {
 }
 
 #Preview {
-    PasswordView(action: {
+    PasswordView(text: .constant(""), isSecure: .constant(true)) {
         
-    }, text: .constant(""), isSecure: .constant(true))
+    }
 }

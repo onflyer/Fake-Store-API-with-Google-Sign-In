@@ -32,9 +32,9 @@ struct SignUpScreen: View {
                     }
                 })
                     .tag(RegistrationManager.Screen.email)
-                PasswordView(action: {
+                PasswordView(text: $manager.user.password, isSecure: $manager.isSecure) {
                     manager.validatePassword()
-                    //TODO: HANDLE REGISTRATION
+                    print(manager.user)
                     isRegistering = true
                     
                     Task {
@@ -42,9 +42,9 @@ struct SignUpScreen: View {
                         isRegistering = false
                         session.register()
                     }
+                }
+                .tag(RegistrationManager.Screen.password)
                 
-                }, text: $manager.user.password, isSecure: $manager.isSecure)
-                    .tag(RegistrationManager.Screen.password)
             }
             .animation(.easeInOut, value: manager.active)
             .tabViewStyle(.page(indexDisplayMode: .never))
