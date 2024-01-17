@@ -7,11 +7,16 @@
 
 import Foundation
 
-struct DeleteProductResponseDTO: Codable {
+struct DeleteProductSuccessResponseDTO: Codable {
+    
     let deleted: Bool
     
     init(from decoder: Decoder) throws {
         var container = try decoder.singleValueContainer()
         deleted = try container.decode(Bool.self)
     }
+}
+
+struct DeleteProductErrorResponseDTO: Codable {
+    let path, timestamp, name, message: String
 }
