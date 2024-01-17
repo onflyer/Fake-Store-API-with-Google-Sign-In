@@ -11,7 +11,7 @@ struct DeleteProductResponseDTO: Codable {
     let deleted: Bool
     
     init(from decoder: Decoder) throws {
-        var container = try decoder.unkeyedContainer()
+        var container = try decoder.singleValueContainer()
         deleted = try container.decode(Bool.self)
     }
 }
