@@ -40,14 +40,14 @@ final class RegistrationManager: ObservableObject {
         error = user.name.isEmpty ? .emptyName : nil
     }
     
-    func validateUsername() {
+    func validateEmail() {
         hasError = user.email.isEmpty
         error = user.email.isEmpty ? .emptyUsername : nil
     }
     
     func validatePassword() {
-        hasError = user.password.isEmpty
-        error = user.password.isEmpty ? .emptyPassword : nil
+        hasError = user.password.isEmpty || user.password.count < 4
+        error = user.password.isEmpty || user.password.count < 4 ? .emptyPassword : nil
     }
     
     func fetchCreateUser() async {

@@ -28,7 +28,7 @@ struct LoginScreen: View {
                 CustomTextField(text: $userName, placeholder: "Enter your usename", hasError: $hasError )
                         .padding(.horizontal)
                     
-                    CustomSecureField(text: $password, isSecure: $showPassword, placeholder: "Enter your password")
+                CustomSecureField(text: $password, isSecure: $showPassword, hasError: $hasError, placeholder: "Enter your password")
                         .padding(.horizontal)
                 
                 Button("Login") {

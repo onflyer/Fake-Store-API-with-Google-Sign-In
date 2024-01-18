@@ -34,6 +34,7 @@
 		3B0BB7032B5706EB00D6882F /* CreateUserResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0BB7022B5706EB00D6882F /* CreateUserResponseDTO.swift */; };
 		3B8BC8472B570D7B00A21F6B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8BC8462B570D7B00A21F6B /* Endpoint.swift */; };
 		3B8BC8492B5712F300A21F6B /* DeleteProductResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8BC8482B5712F300A21F6B /* DeleteProductResponseDTO.swift */; };
+		3B995CDD2B59D13800E97DD7 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B995CDC2B59D13800E97DD7 /* Auth.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		3B0BB7022B5706EB00D6882F /* CreateUserResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserResponseDTO.swift; sourceTree = "<group>"; };
 		3B8BC8462B570D7B00A21F6B /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		3B8BC8482B5712F300A21F6B /* DeleteProductResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteProductResponseDTO.swift; sourceTree = "<group>"; };
+		3B995CDC2B59D13800E97DD7 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				3B0BB6EB2B5304E900D6882F /* User.swift */,
 				3B0BB7022B5706EB00D6882F /* CreateUserResponseDTO.swift */,
 				3B8BC8482B5712F300A21F6B /* DeleteProductResponseDTO.swift */,
+				3B995CDC2B59D13800E97DD7 /* Auth.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				3B0BB6D12B52C5E300D6882F /* SessionManager.swift in Sources */,
 				3B0BB6D72B52CA3200D6882F /* OnboardingScreen.swift in Sources */,
 				3B0BB6E02B52EA5A00D6882F /* OnboardingItem.swift in Sources */,
+				3B995CDD2B59D13800E97DD7 /* Auth.swift in Sources */,
 				3B0BB6DD2B52E9E000D6882F /* OnboardingManager.swift in Sources */,
 				3B0BB6F92B544BD900D6882F /* ImageCache.swift in Sources */,
 				3B0BB6FD2B544BDE00D6882F /* ImageRetriever.swift in Sources */,

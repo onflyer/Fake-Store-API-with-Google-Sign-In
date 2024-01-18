@@ -68,6 +68,12 @@ struct Endpoint {
         }
         
         static let checkTheEmail = URL(string: "\(baseUrl)/users/is-available")!
+        
+        static let login = URL(string: "\(baseUrl)/auth/login")!
+        
+        static let loginWithAccessToken = URL(string: "\(baseUrl)/auth/profile")!
+        
+        static let refreshAccessTokenWithRefreshToken = URL(string: "\(baseUrl)/auth/refresh-token")!
     }
     
         

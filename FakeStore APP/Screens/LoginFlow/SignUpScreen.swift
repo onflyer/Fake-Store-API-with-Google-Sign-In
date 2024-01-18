@@ -26,22 +26,25 @@ struct SignUpScreen: View {
                 .tag(RegistrationManager.Screen.name)
                 
                 EmailView(text: $manager.user.email, hasError: $manager.hasError, action: {
-                    manager.validateUsername()
+                    manager.validateEmail()
                     if !manager.hasError {
                         manager.next()
                     }
                 })
                     .tag(RegistrationManager.Screen.email)
-                PasswordView(text: $manager.user.password, isSecure: $manager.isSecure) {
+                
+                PasswordView(text: $manager.user.password, isSecure: $manager.isSecure, hasErrror: $manager.hasError) {
                     manager.validatePassword()
                     print(manager.user)
-                    isRegistering = true
-                    
-                    Task {
+                    if !manager.hasError {
+                        isRegistering = true
+                        
+                        Task {
                         try await Task.sleep(nanoseconds: 2_000_000_000)
                         isRegistering = false
                         session.register()
                     }
+                }
                 }
                 .tag(RegistrationManager.Screen.password)
                 
@@ -86,7 +89,6 @@ struct SignUpScreen: View {
                 showPreviousButton = true
             }
         }
-        
         
     }
 }

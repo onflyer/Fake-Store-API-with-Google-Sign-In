@@ -11,6 +11,7 @@ struct CustomSecureField: View {
     
     @Binding var text: String
     @Binding var isSecure: Bool
+    @Binding var hasError: Bool
     
     let placeholder: String
     
@@ -55,6 +56,16 @@ struct CustomSecureField: View {
             RoundedRectangle(cornerRadius: 12)
                 .stroke(focused ? .black.opacity(0.6) : .black.opacity(0.2), lineWidth: 2)
         }
+        .overlay {
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(hasError ? .red.opacity(0.6) : .black.opacity(0.0), lineWidth: 2)
+            if hasError {
+                Text("Password must contain at least 4 characters")
+                    .foregroundStyle(.red.opacity(0.6))
+                    .font(.footnote)
+                    .offset(x: -81, y: 37)
+            }
+        }
         .overlay(alignment: .trailing) {
             Button(action: {
                             isSecure.toggle()
@@ -69,5 +80,5 @@ struct CustomSecureField: View {
 }
 
 #Preview {
-    CustomSecureField(text: .constant("password"), isSecure: .constant(false), placeholder: "Enter your password")
+    CustomSecureField(text: .constant("password"), isSecure: .constant(false), hasError: .constant(true), placeholder: "Enter your password")
 }

@@ -11,6 +11,7 @@ struct PasswordView: View {
    
     @Binding var text: String
     @Binding var isSecure: Bool
+    @Binding var hasErrror: Bool
     let action: () -> Void
     
     var body: some View {
@@ -25,7 +26,7 @@ struct PasswordView: View {
                     .font(.system(size: 30,weight: .bold, design: .rounded))
                     .foregroundStyle(.white)
                 
-                CustomSecureField(text: $text, isSecure: $isSecure, placeholder: "Please enter a password")
+                CustomSecureField(text: $text, isSecure: $isSecure, hasError: $hasErrror , placeholder: "Please enter a password")
                     .padding(.horizontal)
                     
                 
@@ -44,7 +45,7 @@ struct PasswordView: View {
 }
 
 #Preview {
-    PasswordView(text: .constant(""), isSecure: .constant(true)) {
+    PasswordView(text: .constant(""), isSecure: .constant(true), hasErrror: .constant(true)) {
         
     }
 }

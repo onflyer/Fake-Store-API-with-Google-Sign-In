@@ -31,7 +31,6 @@ final class SessionManager: ObservableObject {
         currentState = .loggedOut
     }
     func register() {
-        //MARK: API CALL FUNCTION FOR LOGIN
         signIn()
         UserDefaults.standard.setValue(true, forKey: UserDefaultKeys.hasCompletedSignUpFlow)
     }
