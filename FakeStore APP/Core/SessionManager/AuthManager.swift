@@ -51,8 +51,8 @@ final class AuthManager: ObservableObject {
     }
     
     func validateEmail() {
-        hasError = user.email.isEmpty
-        error = user.email.isEmpty ? .emptyUsername : nil
+        hasError = user.email.isEmpty && user.email.isValidEmail
+        error = user.email.isEmpty ? .emptyEmail : nil
     }
     
     func validatePassword() {
@@ -89,17 +89,17 @@ final class AuthManager: ObservableObject {
 extension AuthManager {
     enum RegistrationError: LocalizedError {
         case emptyName
-        case emptyUsername
+        case emptyEmail
         case emptyPassword
         
         var errorDescription: String? {
             switch self {
             case .emptyName:
                 return "Name cannot be empty"
-            case .emptyUsername:
+            case .emptyEmail:
                 return "Username cannot be empty!!!"
             case .emptyPassword:
-                return "Password cannot be empty!!!"
+                return "Password cannot be empty and must contain at least 4 characters!!!"
             
             }
         }

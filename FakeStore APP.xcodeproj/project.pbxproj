@@ -35,6 +35,8 @@
 		3B8BC8472B570D7B00A21F6B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8BC8462B570D7B00A21F6B /* Endpoint.swift */; };
 		3B8BC8492B5712F300A21F6B /* DeleteProductResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8BC8482B5712F300A21F6B /* DeleteProductResponseDTO.swift */; };
 		3B995CDD2B59D13800E97DD7 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B995CDC2B59D13800E97DD7 /* Auth.swift */; };
+		3BF26F132B5DA3DA00DFDF2B /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF26F122B5DA3DA00DFDF2B /* Extension+String.swift */; };
+		3BF26F152B5DA6E100DFDF2B /* NameAndEmailValidationSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF26F142B5DA6E100DFDF2B /* NameAndEmailValidationSwitcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +69,8 @@
 		3B8BC8462B570D7B00A21F6B /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		3B8BC8482B5712F300A21F6B /* DeleteProductResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteProductResponseDTO.swift; sourceTree = "<group>"; };
 		3B995CDC2B59D13800E97DD7 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		3BF26F122B5DA3DA00DFDF2B /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
+		3BF26F142B5DA6E100DFDF2B /* NameAndEmailValidationSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameAndEmailValidationSwitcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +133,7 @@
 		3B0BB6C02B52A35700D6882F /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				3BF26F112B5DA3CC00DFDF2B /* Utilities */,
 				3B0BB6F72B544BCE00D6882F /* Cache */,
 				3B0BB6CF2B52C5CD00D6882F /* SessionManager */,
 				3B0BB6F42B54482100D6882F /* NetworkManager */,
@@ -211,6 +216,15 @@
 			path = Cache;
 			sourceTree = "<group>";
 		};
+		3BF26F112B5DA3CC00DFDF2B /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				3BF26F122B5DA3DA00DFDF2B /* Extension+String.swift */,
+				3BF26F142B5DA6E100DFDF2B /* NameAndEmailValidationSwitcher.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -286,6 +300,7 @@
 				3B0BB6F32B54481700D6882F /* HTTPClient.swift in Sources */,
 				3B0BB6C62B52A8FA00D6882F /* CustomTextField.swift in Sources */,
 				3B0BB6B42B52A1C800D6882F /* HomeScreen.swift in Sources */,
+				3BF26F132B5DA3DA00DFDF2B /* Extension+String.swift in Sources */,
 				3B0BB7012B545E9B00D6882F /* NameView.swift in Sources */,
 				3B0BB6EC2B5304E900D6882F /* User.swift in Sources */,
 				3B0BB7032B5706EB00D6882F /* CreateUserResponseDTO.swift in Sources */,
@@ -307,6 +322,7 @@
 				3B0BB6B22B52A1C800D6882F /* FakeStore_APPApp.swift in Sources */,
 				3B0BB6CE2B52B4A200D6882F /* CustomSecureField.swift in Sources */,
 				3B0BB6C42B52A51600D6882F /* LoginScreen.swift in Sources */,
+				3BF26F152B5DA6E100DFDF2B /* NameAndEmailValidationSwitcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,6 +13,7 @@ struct CustomTextField: View {
     let placeholder: String
     @Binding var hasError: Bool
     
+    
     @FocusState var focused: Bool
     
     var body: some View {
@@ -51,7 +52,7 @@ struct CustomTextField: View {
                 RoundedRectangle(cornerRadius: 12)
                     .stroke(hasError ? .red.opacity(0.6) : .black.opacity(0.0), lineWidth: 2)
             if hasError {
-                Text("Email cannot be empty")
+                Text("Email cannot be empty and must be valid email")
                     .foregroundStyle(.red.opacity(0.6))
                     .font(.footnote)
                     .offset(x: -81, y: 37)
