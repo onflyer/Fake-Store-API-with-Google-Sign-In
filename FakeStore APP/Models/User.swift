@@ -7,17 +7,17 @@
 
 import Foundation
 
-struct User {
+struct User: Codable {
     var name: String
     var email: String
     var password: String
-    var avatarURL: String
+    var avatar: String
     
-    init(name: String, email: String, password: String, avatarURL: String = "https://api.multiavatar.com/\(Int.random(in: 0...1000)).png" ) {
+    init(name: String, email: String, password: String, avatar: String = "https://api.multiavatar.com/\(Int.random(in: 0...1000)).png" ) {
         self.name = name
         self.email = email
         self.password = password
-        self.avatarURL = avatarURL
+        self.avatar = avatar
     }
     
     var avatarUrl: URL {

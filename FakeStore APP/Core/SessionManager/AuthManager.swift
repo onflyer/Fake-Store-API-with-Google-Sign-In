@@ -7,12 +7,19 @@
 
 import Foundation
 
-final class RegistrationManager: ObservableObject {
+@MainActor
+final class AuthManager: ObservableObject {
+    
+    let httpClient: HTTPClient
     
     enum Screen: Int,CaseIterable {
         case name
         case email
         case password
+    }
+    
+    init(httpClient: HTTPClient) {
+        self.httpClient = httpClient
     }
     
     @Published var active: Screen = Screen.allCases.first!
@@ -21,6 +28,9 @@ final class RegistrationManager: ObservableObject {
     
     @Published var hasError: Bool = false
     @Published var error: RegistrationError?
+
+    
+    @Published var networkError: NetworkError?
     
     func next() {
         let nextScreenIndex = min(active.rawValue + 1, Screen.allCases.last!.rawValue)
@@ -50,12 +60,33 @@ final class RegistrationManager: ObservableObject {
         error = user.password.isEmpty || user.password.count < 4 ? .emptyPassword : nil
     }
     
-    func fetchCreateUser() async {
+    func createUser() async throws {
         
+        let data = user
+        
+        let resource = try Resource(url: Endpoint.Urls.createUser, method: .post(JSONEncoder().encode(data)), modelType: CreateUserSuccessResponseDTO.self)
+        
+        let newUser = try await httpClient.load(resource)
+        print(newUser)
+    }
+    
+    func loadCreateUser() async throws {
+        do {
+            try await createUser()
+        } catch {
+            print(error)
+            self.hasError = true
+            if let networkingError = error as? NetworkError {
+                self.networkError = networkingError
+            } else {
+                self.networkError = .custom(error: error)
+            }
+            
+        }
     }
 }
 
-extension RegistrationManager {
+extension AuthManager {
     enum RegistrationError: LocalizedError {
         case emptyName
         case emptyUsername

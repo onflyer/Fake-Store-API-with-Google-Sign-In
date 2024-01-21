@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SignUpScreen: View {
     @EnvironmentObject var session: SessionManager
-    @StateObject private var manager = RegistrationManager()
+    @StateObject private var manager = AuthManager(httpClient: HTTPClient())
     @State private var showPreviousButton: Bool = false
     @State private var isRegistering: Bool = false
     
@@ -23,7 +23,7 @@ struct SignUpScreen: View {
                         manager.next()
                     }
                 }
-                .tag(RegistrationManager.Screen.name)
+                .tag(AuthManager.Screen.name)
                 
                 EmailView(text: $manager.user.email, hasError: $manager.hasError, action: {
                     manager.validateEmail()
@@ -31,22 +31,25 @@ struct SignUpScreen: View {
                         manager.next()
                     }
                 })
-                    .tag(RegistrationManager.Screen.email)
+                    .tag(AuthManager.Screen.email)
                 
                 PasswordView(text: $manager.user.password, isSecure: $manager.isSecure, hasErrror: $manager.hasError) {
                     manager.validatePassword()
+                    
                     print(manager.user)
                     if !manager.hasError {
                         isRegistering = true
-                        
                         Task {
-                        try await Task.sleep(nanoseconds: 2_000_000_000)
-                        isRegistering = false
-                        session.register()
+                            try await manager.loadCreateUser()
+                            isRegistering = false
+                            guard !manager.hasError else {
+                                return
+                            }
+                            session.register()
+                        }
                     }
                 }
-                }
-                .tag(RegistrationManager.Screen.password)
+                .tag(AuthManager.Screen.password)
                 
             }
             .animation(.easeInOut, value: manager.active)
@@ -83,7 +86,7 @@ struct SignUpScreen: View {
             UIScrollView.appearance().isScrollEnabled = true
         }
         .onChange(of: manager.active) { oldValue, newValue in
-            if newValue == RegistrationManager.Screen.allCases.first {
+            if newValue == AuthManager.Screen.allCases.first {
                 showPreviousButton = false
             } else {
                 showPreviousButton = true
