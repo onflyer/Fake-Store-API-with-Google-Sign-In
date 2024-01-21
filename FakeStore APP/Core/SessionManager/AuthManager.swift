@@ -51,7 +51,7 @@ final class AuthManager: ObservableObject {
     }
     
     func validateEmail() {
-        hasError = user.email.isEmpty && user.email.isValidEmail
+        hasError = user.email.isEmpty || !user.email.isValidEmail
         error = user.email.isEmpty ? .emptyEmail : nil
     }
     

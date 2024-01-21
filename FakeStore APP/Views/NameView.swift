@@ -29,6 +29,16 @@ struct NameView: View {
                     .foregroundStyle(.white)
                 
                 CustomTextField(text: $text, placeholder: "Please enter your name", hasError: $hasError)
+                    .overlay {
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(hasError ? .red.opacity(0.6) : .black.opacity(0.0), lineWidth: 2)
+                        if hasError {
+                            Text("Name cannot be empty")
+                                .foregroundStyle(.red.opacity(0.6))
+                                .font(.footnote)
+                                .offset(x: -81, y: 37)
+                        }
+                    }
                     .padding(.horizontal)
                 
                 Button("Next") {
