@@ -36,7 +36,6 @@
 		3B8BC8492B5712F300A21F6B /* DeleteProductResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8BC8482B5712F300A21F6B /* DeleteProductResponseDTO.swift */; };
 		3B995CDD2B59D13800E97DD7 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B995CDC2B59D13800E97DD7 /* Auth.swift */; };
 		3BF26F132B5DA3DA00DFDF2B /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF26F122B5DA3DA00DFDF2B /* Extension+String.swift */; };
-		3BF26F152B5DA6E100DFDF2B /* NameAndEmailValidationSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF26F142B5DA6E100DFDF2B /* NameAndEmailValidationSwitcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,7 +69,6 @@
 		3B8BC8482B5712F300A21F6B /* DeleteProductResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteProductResponseDTO.swift; sourceTree = "<group>"; };
 		3B995CDC2B59D13800E97DD7 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		3BF26F122B5DA3DA00DFDF2B /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
-		3BF26F142B5DA6E100DFDF2B /* NameAndEmailValidationSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameAndEmailValidationSwitcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,7 +218,6 @@
 			isa = PBXGroup;
 			children = (
 				3BF26F122B5DA3DA00DFDF2B /* Extension+String.swift */,
-				3BF26F142B5DA6E100DFDF2B /* NameAndEmailValidationSwitcher.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -322,7 +319,6 @@
 				3B0BB6B22B52A1C800D6882F /* FakeStore_APPApp.swift in Sources */,
 				3B0BB6CE2B52B4A200D6882F /* CustomSecureField.swift in Sources */,
 				3B0BB6C42B52A51600D6882F /* LoginScreen.swift in Sources */,
-				3BF26F152B5DA6E100DFDF2B /* NameAndEmailValidationSwitcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

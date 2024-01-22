@@ -33,7 +33,7 @@ struct SignUpScreen: View {
                 })
                     .tag(AuthManager.Screen.email)
                 
-                PasswordView(text: $manager.user.password, isSecure: $manager.isSecure, hasErrror: $manager.hasError) {
+                PasswordView(text: $manager.user.password, isSecure: $manager.isSecure, hasError: $manager.hasError) {
                     manager.validatePassword()
                     
                     print(manager.user)
