@@ -24,6 +24,7 @@ final class AuthManager: ObservableObject {
     
     @Published var active: Screen = Screen.allCases.first!
     @Published var user = User(name: "", email: "", password: "")
+    @Published var login = LoginUser(email: "", password: "")
     @Published var isSecure = true
     
     @Published var hasError: Bool = false
@@ -55,6 +56,16 @@ final class AuthManager: ObservableObject {
         error = user.email.isEmpty ? .emptyEmail : nil
     }
     
+    func validateLoginEmail()  {
+        hasError = login.email.isEmpty || !login.email.isValidEmail
+        error = login.email.isEmpty ? .emptyEmail : nil
+    }
+    
+    func validateLoginPassword() {
+        hasError = login.password.isEmpty || login.password.count < 4
+        error = login.password.isEmpty || user.password.count < 4 ? .emptyPassword : nil
+    }
+    
     func validatePassword() {
         hasError = user.password.isEmpty || user.password.count < 4
         error = user.password.isEmpty || user.password.count < 4 ? .emptyPassword : nil
@@ -84,6 +95,33 @@ final class AuthManager: ObservableObject {
             
         }
     }
+    
+    func fetchLogin() async throws {
+        
+        let data = login
+        
+        let resource = try Resource(url: Endpoint.Urls.login, method: .post(JSONEncoder().encode(data)), modelType: LoginResponseDTO.self)
+        
+        let loggedInUser = try await httpClient.load(resource)
+        print(loggedInUser)
+    }
+    
+    func login() async throws {
+        do {
+            try await fetchLogin()
+        } catch {
+            print(error)
+            self.hasError = true
+            if let networkingError = error as? NetworkError {
+                self.networkError = networkingError
+            } else {
+                self.networkError = .custom(error: error)
+            }
+        }
+    }
+    
+    
+    
 }
 
 extension AuthManager {

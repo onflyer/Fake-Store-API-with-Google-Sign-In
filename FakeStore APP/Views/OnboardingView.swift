@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct OnboardingView: View {
+    
     let item: OnboardingItem
     
     var body: some View {

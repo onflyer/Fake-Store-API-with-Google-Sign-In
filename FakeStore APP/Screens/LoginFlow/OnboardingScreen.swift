@@ -14,6 +14,7 @@ struct OnboardingScreen: View {
     
     var body: some View {
         ZStack {
+            
             Color.green.opacity(0.5).ignoresSafeArea()
             
             if !manager.items.isEmpty {
@@ -24,9 +25,8 @@ struct OnboardingScreen: View {
                         OnboardingView(item: item)
                             .onAppear {
                                 if item == manager.items.last {
-                                    withAnimation(.spring().delay(0.25)) {
-                                        showButton = true
-                                    
+                                    withAnimation(.easeInOut) {
+                                       showButton = true
                                     }
                                 }
                             }
@@ -35,20 +35,26 @@ struct OnboardingScreen: View {
                                     Button("Next") {
                                         action()
                                     }
-                                    .foregroundStyle(.green.opacity(0.5))
                                     .frame(width: 200, height: 56)
+                                    .foregroundStyle(.green.opacity(0.5))
                                     .background(Color.white)
                                     .clipShape(RoundedRectangle(cornerRadius: 12))
                                     .offset(y: 70)
                                     .transition(.scale.combined(with: .opacity))
+                                    
+                                
                                 }
+                                
                                 
 
                             }
                         }
+                    
                 }
                 .tabViewStyle(.page)
                 .indexViewStyle(.page(backgroundDisplayMode: .always))
+                
+                
 
             }
         }
@@ -56,6 +62,7 @@ struct OnboardingScreen: View {
             manager.load()
         }
     }
+        
 }
 
 #Preview {

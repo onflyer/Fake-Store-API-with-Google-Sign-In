@@ -36,6 +36,7 @@
 		3B8BC8492B5712F300A21F6B /* DeleteProductResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8BC8482B5712F300A21F6B /* DeleteProductResponseDTO.swift */; };
 		3B995CDD2B59D13800E97DD7 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B995CDC2B59D13800E97DD7 /* Auth.swift */; };
 		3BF26F132B5DA3DA00DFDF2B /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF26F122B5DA3DA00DFDF2B /* Extension+String.swift */; };
+		3BF26F1C2B5EEEAA00DFDF2B /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF26F1B2B5EEEAA00DFDF2B /* HomeScreenViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		3B8BC8482B5712F300A21F6B /* DeleteProductResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteProductResponseDTO.swift; sourceTree = "<group>"; };
 		3B995CDC2B59D13800E97DD7 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		3BF26F122B5DA3DA00DFDF2B /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
+		3BF26F1B2B5EEEAA00DFDF2B /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				3B0BB6F12B5447BD00D6882F /* LoginFlow */,
+				3BF26F1A2B5EEE8C00DFDF2B /* HomeScreen */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -188,7 +191,6 @@
 				3B0BB6D42B52C78300D6882F /* MainAppScreen.swift */,
 				3B0BB6D62B52CA3200D6882F /* OnboardingScreen.swift */,
 				3B0BB6E72B52FCAB00D6882F /* SignUpScreen.swift */,
-				3B0BB6B32B52A1C800D6882F /* HomeScreen.swift */,
 				3B0BB6C32B52A51600D6882F /* LoginScreen.swift */,
 			);
 			path = LoginFlow;
@@ -220,6 +222,15 @@
 				3BF26F122B5DA3DA00DFDF2B /* Extension+String.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		3BF26F1A2B5EEE8C00DFDF2B /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				3B0BB6B32B52A1C800D6882F /* HomeScreen.swift */,
+				3BF26F1B2B5EEEAA00DFDF2B /* HomeScreenViewModel.swift */,
+			);
+			path = HomeScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,6 +312,7 @@
 				3B0BB7012B545E9B00D6882F /* NameView.swift in Sources */,
 				3B0BB6EC2B5304E900D6882F /* User.swift in Sources */,
 				3B0BB7032B5706EB00D6882F /* CreateUserResponseDTO.swift in Sources */,
+				3BF26F1C2B5EEEAA00DFDF2B /* HomeScreenViewModel.swift in Sources */,
 				3B8BC8492B5712F300A21F6B /* DeleteProductResponseDTO.swift in Sources */,
 				3B0BB6D52B52C78300D6882F /* MainAppScreen.swift in Sources */,
 				3B0BB6E62B52FB1500D6882F /* PasswordView.swift in Sources */,

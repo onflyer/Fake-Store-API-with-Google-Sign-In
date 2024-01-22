@@ -19,3 +19,8 @@ struct LoginResponseDTO: Codable {
 struct GetNewAccessToken: Codable {
     let refreshToken : String
 }
+
+struct LoginUser: Codable {
+    var email: String
+    var password: String
+}
