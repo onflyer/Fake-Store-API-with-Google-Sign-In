@@ -20,8 +20,7 @@ struct LoginScreen: View {
     var body: some View {
         
         ZStack {
-        
-        Spacer()
+            Color.clear.ignoresSafeArea()
         VStack(alignment: .center, spacing: 10) {
             Text("Welcome")
                 .font(.system(size: 40, weight: .heavy, design: .rounded))
@@ -68,7 +67,7 @@ struct LoginScreen: View {
             .clipShape(RoundedRectangle(cornerRadius: 12))
             .padding()
         }
-        Spacer()
+        
         
         
         
@@ -82,8 +81,6 @@ struct LoginScreen: View {
             }
         }
         .animation(.easeInOut, value: isRegistering)
-        .ignoresSafeArea()
-
 
     }
 }
