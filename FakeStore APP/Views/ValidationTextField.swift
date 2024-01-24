@@ -23,9 +23,13 @@ struct ValidationTextField: View {
     @Binding var text: String
     @Binding var errorText: String
     @Binding var isValid: Bool
+    @Binding var isNotValid: Bool
     
     var showValidationErrorPrompt: Bool {
-        !isValid && (editState == .secondOrMore)
+        isNotValid == !text.isEmpty /*&& (editState == .secondOrMore)*/
+    }
+    var showValidationSuccesPrompt: Bool {
+        isValid == text.isEmpty && text.count > 4
     }
     
     
@@ -61,6 +65,10 @@ struct ValidationTextField: View {
                     RoundedRectangle(cornerRadius: 5)
                         .stroke(showValidationErrorPrompt ? Color.red : Color.clear, lineWidth: 2)
                 )
+                .overlay(
+                    RoundedRectangle(cornerRadius: 5)
+                        .stroke(showValidationSuccesPrompt ? Color.blue : Color.clear, lineWidth: 2)
+                )
                 .background(
                     GeometryReader { geometry in
                         Color(.clear).onAppear {
@@ -94,5 +102,5 @@ struct ValidationTextField: View {
 }
 
 #Preview {
-    ValidationTextField(placeholder: .constant("placeholder"), text: .constant("text"), errorText: .constant("error"), isValid: .constant(false))
+    ValidationTextField(placeholder: .constant("placeholder"), text: .constant("text"), errorText: .constant("error"), isValid: .constant(false), isNotValid: .constant(false))
 }

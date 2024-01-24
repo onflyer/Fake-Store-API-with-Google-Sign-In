@@ -67,6 +67,7 @@ struct ValidationSecureField: View {
                         }
                     }
                 }
+                .focused($isFocused)
                 .padding()
                 .overlay(alignment: .trailing) {
                     Button(action: {
@@ -94,11 +95,15 @@ struct ValidationSecureField: View {
                     }
                 )
             }
+            .onTapGesture {
+                isFocused = true
+            }
                 .background {
                     Color(.secondarySystemBackground)
                         .cornerRadius(5.0)
                         .shadow(radius: 5.0)
                 }
+                .animation(.default, value: isFocused)
                 .animation(.default, value: text.isEmpty)
                 .animation(.default, value: showValidationErrorPrompt)
                 if showValidationErrorPrompt {
