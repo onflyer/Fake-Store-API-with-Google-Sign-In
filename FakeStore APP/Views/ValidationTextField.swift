@@ -17,7 +17,7 @@ struct ValidationTextField: View {
     @State private var editState: EditState = .idle
     @State private var height: CGFloat = 0
     
-    @FocusState var isFocused:Bool 
+    @FocusState var isFocused: Bool
     
     @Binding var placeholder: String
     @Binding var text: String
@@ -51,10 +51,11 @@ struct ValidationTextField: View {
                         break
                     }
                 }
+                .focused($isFocused)
                 .padding()
                 .overlay(
                     RoundedRectangle(cornerRadius: 5)
-                        .stroke(isFocused ? Color.accentColor : Color(.secondarySystemBackground), lineWidth: 2)
+                        .stroke(isFocused ? Color.gray : Color(.secondarySystemBackground), lineWidth: 2)
                 )
                 .overlay(
                     RoundedRectangle(cornerRadius: 5)
@@ -68,11 +69,16 @@ struct ValidationTextField: View {
                     }
                 )
             }
+            .onTapGesture {
+                isFocused = true
+            }
+            
                 .background {
                     Color(.secondarySystemBackground)
                         .cornerRadius(5.0)
                         .shadow(radius: 5.0)
                 }
+                .animation(.default, value: isFocused)
                 .animation(.default, value: text.isEmpty)
                 .animation(.default, value: showValidationErrorPrompt)
                 

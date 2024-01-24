@@ -13,7 +13,12 @@ struct trytextfield: View {
     @State var errror = "error"
     @State var isValid = false
     var body: some View {
-        ValidationTextField(placeholder: $placeholder, text: $text, errorText: $errror, isValid: $isValid)
+        VStack {
+            ValidationTextField(placeholder: $placeholder, text: $text, errorText: $errror, isValid: $isValid)
+            
+            TextField("dasdas", text: $text)
+            
+        }
     }
 }
 
