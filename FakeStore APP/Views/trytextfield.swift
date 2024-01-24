@@ -19,6 +19,8 @@ struct trytextfield: View {
             
             TextField("dasdas", text: $text)
             
+            ValidationSecureField(placeholder: $placeholder, text: $text, errorText: $errror, isValid: $isValid)
+            
         }
     }
 }

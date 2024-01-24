@@ -44,17 +44,7 @@ struct ValidationTextField: View {
                     .scaleEffect(text.isEmpty ? 1: 0.9, anchor: .leading)
                     .padding()
                     .font(text.isEmpty ? .body: .body.bold())
-                TextField("", text: $text) { _ in
-                    withAnimation(.default) { isFocused.toggle() }
-                    switch editState {
-                    case .idle:
-                        editState = .firstTime
-                    case .firstTime:
-                        editState = .secondOrMore
-                    case .secondOrMore:
-                        break
-                    }
-                }
+                TextField("", text: $text)                
                 .focused($isFocused)
                 .padding()
                 .overlay(
