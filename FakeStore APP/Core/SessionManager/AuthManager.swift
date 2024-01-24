@@ -28,7 +28,7 @@ final class AuthManager: ObservableObject {
     @Published var isSecure = true
     
     @Published var hasError: Bool = false
-    @Published var error: RegistrationError?
+    @Published var validationError: RegistrationError?
 
     
     @Published var networkError: NetworkError?
@@ -48,27 +48,27 @@ final class AuthManager: ObservableObject {
     }
     func validateName() {
         hasError = user.name.isEmpty
-        error = user.name.isEmpty ? .emptyName : nil
+        validationError = user.name.isEmpty ? .emptyName : nil
     }
     
     func validateEmail() {
         hasError = user.email.isEmpty || !user.email.isValidEmail
-        error = user.email.isEmpty ? .emptyEmail : nil
+        validationError = user.email.isEmpty ? .emptyEmail : nil
     }
     
     func validateLoginEmail()  {
         hasError = login.email.isEmpty || !login.email.isValidEmail
-        error = login.email.isEmpty ? .emptyEmail : nil
+        validationError = login.email.isEmpty ? .emptyEmail : nil
     }
     
     func validateLoginPassword() {
         hasError = login.password.isEmpty || login.password.count < 4
-        error = login.password.isEmpty || user.password.count < 4 ? .emptyPassword : nil
+        validationError = login.password.isEmpty || user.password.count < 4 ? .emptyPassword : nil
     }
     
     func validatePassword() {
         hasError = user.password.isEmpty || user.password.count < 4
-        error = user.password.isEmpty || user.password.count < 4 ? .emptyPassword : nil
+        validationError = user.password.isEmpty || user.password.count < 4 ? .emptyPassword : nil
     }
     
     func createUser() async throws {

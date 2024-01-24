@@ -13,10 +13,7 @@ struct LoginScreen: View {
     @State private var isRegistering = false
     
     
-//    @State private var userName: String = ""
-//    @State private var password: String = ""
-//    @State private var showPassword: Bool = false
-//    @State private var hasError: Bool = false
+
     var body: some View {
         
         ZStack {

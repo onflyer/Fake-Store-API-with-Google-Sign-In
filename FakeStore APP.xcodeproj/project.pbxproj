@@ -32,6 +32,11 @@
 		3B0BB6FF2B544BE100D6882F /* CachedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0BB6FE2B544BE100D6882F /* CachedImage.swift */; };
 		3B0BB7012B545E9B00D6882F /* NameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0BB7002B545E9B00D6882F /* NameView.swift */; };
 		3B0BB7032B5706EB00D6882F /* CreateUserResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0BB7022B5706EB00D6882F /* CreateUserResponseDTO.swift */; };
+		3B798F362B618AC400E07E9A /* TextInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B798F352B618AC400E07E9A /* TextInputField.swift */; };
+		3B798F382B618EC200E07E9A /* FormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B798F372B618EC200E07E9A /* FormField.swift */; };
+		3B801F592B619CE5007FD851 /* ValidationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B801F582B619CE5007FD851 /* ValidationTextField.swift */; };
+		3B801F5B2B61A45D007FD851 /* ValidationSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B801F5A2B61A45D007FD851 /* ValidationSecureField.swift */; };
+		3B801F5D2B61AE61007FD851 /* trytextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B801F5C2B61AE61007FD851 /* trytextfield.swift */; };
 		3B8BC8472B570D7B00A21F6B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8BC8462B570D7B00A21F6B /* Endpoint.swift */; };
 		3B8BC8492B5712F300A21F6B /* DeleteProductResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8BC8482B5712F300A21F6B /* DeleteProductResponseDTO.swift */; };
 		3B995CDD2B59D13800E97DD7 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B995CDC2B59D13800E97DD7 /* Auth.swift */; };
@@ -66,6 +71,11 @@
 		3B0BB6FE2B544BE100D6882F /* CachedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedImage.swift; sourceTree = "<group>"; };
 		3B0BB7002B545E9B00D6882F /* NameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameView.swift; sourceTree = "<group>"; };
 		3B0BB7022B5706EB00D6882F /* CreateUserResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserResponseDTO.swift; sourceTree = "<group>"; };
+		3B798F352B618AC400E07E9A /* TextInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputField.swift; sourceTree = "<group>"; };
+		3B798F372B618EC200E07E9A /* FormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormField.swift; sourceTree = "<group>"; };
+		3B801F582B619CE5007FD851 /* ValidationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationTextField.swift; sourceTree = "<group>"; };
+		3B801F5A2B61A45D007FD851 /* ValidationSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationSecureField.swift; sourceTree = "<group>"; };
+		3B801F5C2B61AE61007FD851 /* trytextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trytextfield.swift; sourceTree = "<group>"; };
 		3B8BC8462B570D7B00A21F6B /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		3B8BC8482B5712F300A21F6B /* DeleteProductResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteProductResponseDTO.swift; sourceTree = "<group>"; };
 		3B995CDC2B59D13800E97DD7 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
@@ -150,6 +160,10 @@
 				3B0BB6E32B52F85400D6882F /* EmailView.swift */,
 				3B0BB6E52B52FB1500D6882F /* PasswordView.swift */,
 				3B0BB7002B545E9B00D6882F /* NameView.swift */,
+				3B798F352B618AC400E07E9A /* TextInputField.swift */,
+				3B801F582B619CE5007FD851 /* ValidationTextField.swift */,
+				3B801F5A2B61A45D007FD851 /* ValidationSecureField.swift */,
+				3B801F5C2B61AE61007FD851 /* trytextfield.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -220,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				3BF26F122B5DA3DA00DFDF2B /* Extension+String.swift */,
+				3B798F372B618EC200E07E9A /* FormField.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -303,17 +318,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B798F382B618EC200E07E9A /* FormField.swift in Sources */,
 				3B0BB6EA2B52FD7B00D6882F /* AuthManager.swift in Sources */,
 				3B0BB6E42B52F85400D6882F /* EmailView.swift in Sources */,
 				3B0BB6F32B54481700D6882F /* HTTPClient.swift in Sources */,
 				3B0BB6C62B52A8FA00D6882F /* CustomTextField.swift in Sources */,
 				3B0BB6B42B52A1C800D6882F /* HomeScreen.swift in Sources */,
 				3BF26F132B5DA3DA00DFDF2B /* Extension+String.swift in Sources */,
+				3B801F592B619CE5007FD851 /* ValidationTextField.swift in Sources */,
 				3B0BB7012B545E9B00D6882F /* NameView.swift in Sources */,
 				3B0BB6EC2B5304E900D6882F /* User.swift in Sources */,
 				3B0BB7032B5706EB00D6882F /* CreateUserResponseDTO.swift in Sources */,
 				3BF26F1C2B5EEEAA00DFDF2B /* HomeScreenViewModel.swift in Sources */,
+				3B801F5B2B61A45D007FD851 /* ValidationSecureField.swift in Sources */,
 				3B8BC8492B5712F300A21F6B /* DeleteProductResponseDTO.swift in Sources */,
+				3B801F5D2B61AE61007FD851 /* trytextfield.swift in Sources */,
 				3B0BB6D52B52C78300D6882F /* MainAppScreen.swift in Sources */,
 				3B0BB6E62B52FB1500D6882F /* PasswordView.swift in Sources */,
 				3B8BC8472B570D7B00A21F6B /* Endpoint.swift in Sources */,
@@ -327,6 +346,7 @@
 				3B0BB6FD2B544BDE00D6882F /* ImageRetriever.swift in Sources */,
 				3B0BB6E82B52FCAB00D6882F /* SignUpScreen.swift in Sources */,
 				3B0BB6D92B52E94000D6882F /* OnboardingView.swift in Sources */,
+				3B798F362B618AC400E07E9A /* TextInputField.swift in Sources */,
 				3B0BB6FF2B544BE100D6882F /* CachedImage.swift in Sources */,
 				3B0BB6B22B52A1C800D6882F /* FakeStore_APPApp.swift in Sources */,
 				3B0BB6CE2B52B4A200D6882F /* CustomSecureField.swift in Sources */,
