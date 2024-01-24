@@ -60,7 +60,7 @@ struct FakeStore_APPApp: App {
     
     var body: some Scene {
         WindowGroup {
-          trytextfield()
+          MainAppScreen()
                 .environmentObject(session)
         }
     }
