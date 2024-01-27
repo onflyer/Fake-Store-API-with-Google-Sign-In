@@ -8,32 +8,16 @@
 import SwiftUI
 
 struct TextInputField: View {
-
-    enum EditState {
-        case idle
-        case firstTime
-        case secondOrMore
-    }
     
-    @Binding var placeholder: String
+    let placeholder: String
+    
     @Binding var errorPrompt: String
-    @Binding var isValid: Bool
-
+    @Binding var isNotValid: Bool
+    
     @Binding var text: String
-
     
     @State private var height: CGFloat = 0
-    @State private var isFocused = false
-    @State private var editState: EditState = .idle
-    
-    
-    
-    
-
-    var showValidationErrorPrompt: Bool {
-        !isValid && (editState == .secondOrMore) || text.isEmpty
-    }
-
+    @FocusState var isFocused :Bool
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -44,33 +28,27 @@ struct TextInputField: View {
                     .scaleEffect(text.isEmpty ? 1: 0.9, anchor: .leading)
                     .padding()
                     .font(text.isEmpty ? .body: .body.bold())
-                TextField("", text: $text) { _ in
-                    withAnimation(.default) { isFocused.toggle() }
-                    switch editState {
-                        case .idle:
-                            editState = .firstTime
-                        case .firstTime:
-                            editState = .secondOrMore
-                        case .secondOrMore:
-                            break
-                    }
-                }
-                .padding()
-                .overlay(
-                    RoundedRectangle(cornerRadius: 5)
-                        .stroke(isFocused ? Color.accentColor : Color(.secondarySystemBackground), lineWidth: 2)
-                )
-                .overlay(
-                    RoundedRectangle(cornerRadius: 5)
-                        .stroke(showValidationErrorPrompt ? Color.red : Color.clear, lineWidth: 2)
-                )
-                .background(
-                    GeometryReader { geometry in
-                        Color(.clear).onAppear {
-                            height = geometry.size.height
+                
+                TextField("", text: $text)
+                    .focused($isFocused)
+                
+                    .padding()
+                
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(isFocused ? Color.green : Color(.secondarySystemBackground), lineWidth: 2)
+                    )
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(isNotValid ? Color.red : Color.clear, lineWidth: 2)
+                    )
+                    .background(
+                        GeometryReader { geometry in
+                            Color(.clear).onAppear {
+                                height = geometry.size.height
+                            }
                         }
-                    }
-                )
+                    )
             }
             .background {
                 Color(.secondarySystemBackground)
@@ -78,17 +56,21 @@ struct TextInputField: View {
                     .shadow(radius: 5.0)
             }
             .animation(.default, value: text.isEmpty)
-            .animation(.default, value: showValidationErrorPrompt)
-            if showValidationErrorPrompt {
+            .animation(.default, value: isFocused)
+            .animation(.default, value: isNotValid)
+            
+            if isNotValid {
                 Text(errorPrompt)
                     .padding(.leading, 2)
                     .font(.footnote)
                     .foregroundColor(Color(.systemRed))
+                
+                
             }
         }
     }
 }
 
 #Preview {
-    TextInputField(placeholder: .constant("placeholder"), errorPrompt: .constant("error"), isValid: .constant(false), text: .constant("text") )
+    TextInputField(placeholder: "placeholder", errorPrompt: .constant("error"), isNotValid: .constant(false), text: .constant("text") )
 }

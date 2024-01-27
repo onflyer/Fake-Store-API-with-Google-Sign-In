@@ -17,12 +17,12 @@ struct SignUpScreen: View {
     var body: some View {
         ZStack {
             TabView(selection: $manager.active) {
-                NameView(text: $manager.user.name, hasError: $manager.hasError) {
+                NameView1(placeholder: "Please enter your name", errorPrompt: $manager.errorPrompt, isNotValid: $manager.isNotValid, text: $manager.user.name, action: {
                     manager.validateName()
-                    if !manager.hasError {
+                    if !manager.isNotValid {
                         manager.next()
                     }
-                }
+                })
                 .tag(AuthManager.Screen.name)
                 
                 EmailView(text: $manager.user.email, hasError: $manager.hasError, action: {

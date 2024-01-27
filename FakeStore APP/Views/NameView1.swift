@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct NameView1: View {
-    @Binding var placeholder: String
+    
+    let placeholder: String
     @Binding var errorPrompt: String
-    @Binding var isValid: Bool
+    @Binding var isNotValid: Bool
     @Binding var text : String
     
     let action: () -> Void
@@ -29,7 +30,12 @@ struct NameView1: View {
                     .font(.system(size: 30,weight: .bold, design: .rounded))
                     .foregroundStyle(.white)
                 
-                TextInputField(placeholder: $placeholder, errorPrompt: $errorPrompt, isValid: $isValid, text: $text)
+                ZStack {
+                
+                        TextInputField(placeholder: placeholder, errorPrompt: $errorPrompt, isNotValid: $isNotValid,text: $text)
+                }
+                .frame(height: 70)
+              
                
                 Button("Next") {
                     action()
@@ -51,5 +57,5 @@ struct NameView1: View {
 }
 
 #Preview {
-    NameView1(placeholder: .constant("placeholder"), errorPrompt: .constant("error"), isValid: .constant(false), text: .constant("text"), action: {})
+    NameView1(placeholder: "placeholder", errorPrompt: .constant("error"), isNotValid: .constant(false), text: .constant("text"), action: {})
 }

@@ -26,9 +26,11 @@ final class AuthManager: ObservableObject {
     @Published var user = User(name: "", email: "", password: "")
     @Published var login = LoginUser(email: "", password: "")
     @Published var isSecure = true
+    @Published var isNotValid = false
     
     @Published var hasError: Bool = false
     @Published var validationError: RegistrationError?
+    @Published var errorPrompt: String = ""
 
     
     @Published var networkError: NetworkError?
@@ -47,8 +49,8 @@ final class AuthManager: ObservableObject {
         }
     }
     func validateName() {
-        hasError = user.name.isEmpty
-        validationError = user.name.isEmpty ? .emptyName : nil
+        isNotValid = user.name.isEmpty
+        errorPrompt = "Name cannot be empty"
     }
     
     func validateEmail() {
