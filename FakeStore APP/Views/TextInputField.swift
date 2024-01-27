@@ -36,7 +36,7 @@ struct TextInputField: View {
                 
                     .overlay(
                         RoundedRectangle(cornerRadius: 5)
-                            .stroke(isFocused ? Color.green : Color(.secondarySystemBackground), lineWidth: 2)
+                            .stroke(isFocused ? Color.blue : Color(.secondarySystemBackground), lineWidth: 2)
                     )
                     .overlay(
                         RoundedRectangle(cornerRadius: 5)

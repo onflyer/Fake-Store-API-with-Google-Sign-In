@@ -24,6 +24,9 @@ struct SignUpScreen: View {
                     }
                 })
                 .tag(AuthManager.Screen.name)
+                .onChange(of: manager.user.name) {
+                    manager.validateName()
+                }
                 
                 EmailView(text: $manager.user.email, hasError: $manager.hasError, action: {
                     manager.validateEmail()
