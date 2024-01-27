@@ -17,10 +17,11 @@ struct SignUpScreen: View {
     var body: some View {
         ZStack {
             TabView(selection: $manager.active) {
-                NameView1(placeholder: "Please enter your name", errorPrompt: $manager.errorPrompt, isNotValid: $manager.isNotValid, text: $manager.user.name, action: {
+                NameView1(placeholder: "Please enter your name", errorPrompt: $manager.validationError, isNotValid: $manager.isNotValid, text: $manager.user.name, action: {
                     manager.validateName()
                     if !manager.isNotValid {
                         manager.next()
+                        
                     }
                 })
                 .tag(AuthManager.Screen.name)
@@ -28,7 +29,7 @@ struct SignUpScreen: View {
                     manager.validateName()
                 }
                 
-                EmailView1(placeholder: "Please enter your Email", errorPrompt: $manager.errorPrompt, isNotValid: $manager.isNotValid, text: $manager.user.email, action: {
+                EmailView1(placeholder: "Please enter your Email", errorPrompt: $manager.validationError, isNotValid: $manager.isNotValid, text: $manager.user.email, action: {
                     manager.validateEmail()
                     if !manager.isNotValid {
                         manager.next()
@@ -75,6 +76,8 @@ struct SignUpScreen: View {
             if showPreviousButton {
                 Button(action: {
                     manager.previous()
+                    manager.validationError = nil
+                    manager.isNotValid = false
                 }, label: {
                     Image(systemName: "chevron.backward")
                         .symbolVariant(.circle.fill)

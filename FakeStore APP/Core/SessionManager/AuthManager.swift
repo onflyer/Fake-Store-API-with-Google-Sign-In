@@ -50,16 +50,17 @@ final class AuthManager: ObservableObject {
     }
     func validateName() {
         isNotValid = user.name.isEmpty
-        errorPrompt = "Name cannot be empty"
+        validationError = user.name.isEmpty ? .emptyName : nil
     }
     
     func validateEmail() {
         isNotValid = user.email.isEmpty || !user.email.isValidEmail
-        isNotValid = user.email.isEmpty || !user.email.isValidEmail
         if user.email.isEmpty {
-            errorPrompt = "Email cannot be empty"
+            validationError = .emptyEmail
+        } else if !user.email.isValidEmail {
+            validationError = .notAnEmail
         } else {
-            errorPrompt = "Email must be real email"
+            validationError = nil
         }
     }
     
@@ -136,16 +137,18 @@ extension AuthManager {
         case emptyName
         case emptyEmail
         case emptyPassword
+        case notAnEmail
         
         var errorDescription: String? {
             switch self {
             case .emptyName:
-                return "Name cannot be empty"
+                return "Name cannot be empty!!!"
             case .emptyEmail:
-                return "Username cannot be empty!!!"
+                return "Email cannot be empty!!!"
             case .emptyPassword:
                 return "Password cannot be empty and must contain at least 4 characters!!!"
-            
+            case .notAnEmail:
+                return "Email must be in correct format!!!"
             }
         }
     }

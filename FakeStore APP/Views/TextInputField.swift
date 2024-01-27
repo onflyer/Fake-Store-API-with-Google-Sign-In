@@ -11,7 +11,7 @@ struct TextInputField: View {
     
     let placeholder: String
     
-    @Binding var errorPrompt: String
+    @Binding var errorPrompt: AuthManager.RegistrationError?
     @Binding var isNotValid: Bool
     
     @Binding var text: String
@@ -35,11 +35,11 @@ struct TextInputField: View {
                     .padding()
                 
                     .overlay(
-                        RoundedRectangle(cornerRadius: 5)
+                        RoundedRectangle(cornerRadius: 12)
                             .stroke(isFocused ? Color.blue : Color(.secondarySystemBackground), lineWidth: 2)
                     )
                     .overlay(
-                        RoundedRectangle(cornerRadius: 5)
+                        RoundedRectangle(cornerRadius: 12)
                             .stroke(isNotValid ? Color.red : Color.clear, lineWidth: 2)
                     )
                     .background(
@@ -52,25 +52,26 @@ struct TextInputField: View {
             }
             .background {
                 Color(.secondarySystemBackground)
-                    .cornerRadius(5.0)
-                    .shadow(radius: 5.0)
+                    .cornerRadius(12.0)
+                    .shadow(radius: (12.0))
             }
             .animation(.default, value: text.isEmpty)
             .animation(.default, value: isFocused)
             .animation(.default, value: isNotValid)
             
             if isNotValid {
-                Text(errorPrompt)
-                    .padding(.leading, 2)
-                    .font(.footnote)
-                    .foregroundColor(Color(.systemRed))
-                
-                
+                if let errorPrompt = errorPrompt?.errorDescription {
+                    Text(errorPrompt)
+                        .padding(.leading, 2)
+                        .font(.footnote)
+                        .foregroundColor(Color(.systemRed))
+                    
+                }
             }
         }
     }
 }
 
 #Preview {
-    TextInputField(placeholder: "placeholder", errorPrompt: .constant("error"), isNotValid: .constant(false), text: .constant("text") )
+    TextInputField(placeholder: "placeholder", errorPrompt: .constant(.emptyName), isNotValid: .constant(false), text: .constant("text") )
 }

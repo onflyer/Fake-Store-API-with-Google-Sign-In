@@ -10,7 +10,7 @@ import SwiftUI
 struct EmailView1: View {
     
     let placeholder: String
-    @Binding var errorPrompt: String
+    @Binding var errorPrompt: AuthManager.RegistrationError?
     @Binding var isNotValid: Bool
     @Binding var text : String
     
@@ -47,5 +47,5 @@ struct EmailView1: View {
 }
 
 #Preview {
-    EmailView1(placeholder: "placeholder", errorPrompt: .constant("error"), isNotValid: .constant(false), text: .constant("text"), action: {})
+    EmailView1(placeholder: "placeholder", errorPrompt: .constant(.emptyEmail), isNotValid: .constant(false), text: .constant("text"), action: {})
 }
