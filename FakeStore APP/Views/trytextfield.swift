@@ -13,6 +13,9 @@ struct trytextfield: View {
     @State var errror = "error"
     @State var isValid = false
     @State var isNotValid = false
+    
+    
+    
     var body: some View {
         VStack {
             ValidationTextField(placeholder: $placeholder, text: $text, errorText: $errror, isValid: $isValid, isNotValid: $isNotValid)
@@ -20,7 +23,9 @@ struct trytextfield: View {
             TextField("dasdas", text: $text)
             
             ValidationSecureField(placeholder: $placeholder, text: $text, errorText: $errror, isValid: $isValid)
+            Spacer()
             
+           
         }
     }
 }

@@ -16,31 +16,31 @@ struct TextInputField: View {
     }
 
 
-    private var title: String
-    private var prompt: String
-    private var isValid: Bool
+    @Binding var placeholder: String
+    @Binding var errorPrompt: String
+    @Binding var isValid: Bool
 
-    @Binding private var text: String
+    @Binding var text: String
 
+    let action: () -> Void
+    
     @State private var height: CGFloat = 0
     @State private var isFocused = false
     @State private var editState: EditState = .idle
+    
+    
+    
+    
 
     var showValidationErrorPrompt: Bool {
-        !isValid && (editState == .secondOrMore)
+        !isValid && (editState == .secondOrMore) || text.isEmpty
     }
 
-    init(_ title: String, prompt: String = "", text: Binding<String>, isValid: Bool) {
-        self.title = title
-        self._text = text
-        self.prompt = prompt
-        self.isValid = isValid
-    }
-
+    
     var body: some View {
         VStack(alignment: .leading) {
             ZStack(alignment: .leading) {
-                Text(title)
+                Text(placeholder)
                     .foregroundColor(text.isEmpty ? Color(.placeholderText) : .accentColor)
                     .offset(x: text.isEmpty ? 0 : -16, y: text.isEmpty ? 0 : -height * 0.85)
                     .scaleEffect(text.isEmpty ? 1: 0.9, anchor: .leading)
@@ -82,7 +82,7 @@ struct TextInputField: View {
             .animation(.default, value: text.isEmpty)
             .animation(.default, value: showValidationErrorPrompt)
             if showValidationErrorPrompt {
-                Text(prompt)
+                Text(errorPrompt)
                     .padding(.leading, 2)
                     .font(.footnote)
                     .foregroundColor(Color(.systemRed))
@@ -92,5 +92,5 @@ struct TextInputField: View {
 }
 
 #Preview {
-    TextInputField("placeholder", prompt: "prompt", text: .constant("sss"), isValid: false)
+    TextInputField(placeholder: .constant("placeholder"), errorPrompt: .constant("error"), isValid: .constant(false), text: .constant("text"), action: {})
 }

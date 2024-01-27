@@ -25,11 +25,13 @@ struct ValidationTextField: View {
     @Binding var isValid: Bool
     @Binding var isNotValid: Bool
     
+    
+    
     var showValidationErrorPrompt: Bool {
         isNotValid == !text.isEmpty /*&& (editState == .secondOrMore)*/
     }
     var showValidationSuccesPrompt: Bool {
-        isValid == text.isEmpty && text.count > 4
+        isValid == text.isEmpty && text.count >= 4
     }
     
     
@@ -44,7 +46,17 @@ struct ValidationTextField: View {
                     .scaleEffect(text.isEmpty ? 1: 0.9, anchor: .leading)
                     .padding()
                     .font(text.isEmpty ? .body: .body.bold())
-                TextField("", text: $text)                
+                TextField("", text: $text) {
+                    withAnimation(.default) { isFocused.toggle() }
+                    switch editState {
+                    case .idle:
+                        editState = .firstTime
+                    case .firstTime:
+                        editState = .secondOrMore
+                    case .secondOrMore:
+                        break
+                    }
+                }
                 .focused($isFocused)
                 .padding()
                 .overlay(
