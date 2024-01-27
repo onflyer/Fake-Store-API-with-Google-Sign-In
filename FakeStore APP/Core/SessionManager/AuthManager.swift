@@ -54,8 +54,13 @@ final class AuthManager: ObservableObject {
     }
     
     func validateEmail() {
-        hasError = user.email.isEmpty || !user.email.isValidEmail
-        validationError = user.email.isEmpty ? .emptyEmail : nil
+        isNotValid = user.email.isEmpty || !user.email.isValidEmail
+        isNotValid = user.email.isEmpty || !user.email.isValidEmail
+        if user.email.isEmpty {
+            errorPrompt = "Email cannot be empty"
+        } else {
+            errorPrompt = "Email must be real email"
+        }
     }
     
     func validateLoginEmail()  {

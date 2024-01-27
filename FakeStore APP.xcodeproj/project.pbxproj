@@ -40,6 +40,7 @@
 		3B8BC8492B5712F300A21F6B /* DeleteProductResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8BC8482B5712F300A21F6B /* DeleteProductResponseDTO.swift */; };
 		3B995CDD2B59D13800E97DD7 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B995CDC2B59D13800E97DD7 /* Auth.swift */; };
 		3BB45C952B658BA800D20081 /* NameView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB45C942B658BA800D20081 /* NameView1.swift */; };
+		3BB45C972B65AEBD00D20081 /* EmailView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB45C962B65AEBD00D20081 /* EmailView1.swift */; };
 		3BF26F132B5DA3DA00DFDF2B /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF26F122B5DA3DA00DFDF2B /* Extension+String.swift */; };
 		3BF26F1C2B5EEEAA00DFDF2B /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF26F1B2B5EEEAA00DFDF2B /* HomeScreenViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -79,6 +80,7 @@
 		3B8BC8482B5712F300A21F6B /* DeleteProductResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteProductResponseDTO.swift; sourceTree = "<group>"; };
 		3B995CDC2B59D13800E97DD7 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		3BB45C942B658BA800D20081 /* NameView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameView1.swift; sourceTree = "<group>"; };
+		3BB45C962B65AEBD00D20081 /* EmailView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView1.swift; sourceTree = "<group>"; };
 		3BF26F122B5DA3DA00DFDF2B /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 		3BF26F1B2B5EEEAA00DFDF2B /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +160,7 @@
 				3B0BB6CD2B52B4A200D6882F /* CustomSecureField.swift */,
 				3B0BB6D82B52E94000D6882F /* OnboardingView.swift */,
 				3B0BB6E32B52F85400D6882F /* EmailView.swift */,
+				3BB45C962B65AEBD00D20081 /* EmailView1.swift */,
 				3B0BB6E52B52FB1500D6882F /* PasswordView.swift */,
 				3B0BB7002B545E9B00D6882F /* NameView.swift */,
 				3BB45C942B658BA800D20081 /* NameView1.swift */,
@@ -343,6 +346,7 @@
 				3B995CDD2B59D13800E97DD7 /* Auth.swift in Sources */,
 				3B0BB6DD2B52E9E000D6882F /* OnboardingManager.swift in Sources */,
 				3B0BB6F92B544BD900D6882F /* ImageCache.swift in Sources */,
+				3BB45C972B65AEBD00D20081 /* EmailView1.swift in Sources */,
 				3B0BB6FD2B544BDE00D6882F /* ImageRetriever.swift in Sources */,
 				3B0BB6E82B52FCAB00D6882F /* SignUpScreen.swift in Sources */,
 				3B0BB6D92B52E94000D6882F /* OnboardingView.swift in Sources */,

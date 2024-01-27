@@ -28,13 +28,16 @@ struct SignUpScreen: View {
                     manager.validateName()
                 }
                 
-                EmailView(text: $manager.user.email, hasError: $manager.hasError, action: {
+                EmailView1(placeholder: "Please enter your Email", errorPrompt: $manager.errorPrompt, isNotValid: $manager.isNotValid, text: $manager.user.email, action: {
                     manager.validateEmail()
-                    if !manager.hasError {
+                    if !manager.isNotValid {
                         manager.next()
                     }
                 })
                     .tag(AuthManager.Screen.email)
+                    .onChange(of: manager.user.email) {
+                        manager.validateEmail()
+                    }
                 
                 PasswordView(text: $manager.user.password, isSecure: $manager.isSecure, hasError: $manager.hasError) {
                     manager.validatePassword()
