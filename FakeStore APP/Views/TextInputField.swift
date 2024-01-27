@@ -14,15 +14,13 @@ struct TextInputField: View {
         case firstTime
         case secondOrMore
     }
-
-
+    
     @Binding var placeholder: String
     @Binding var errorPrompt: String
     @Binding var isValid: Bool
 
     @Binding var text: String
 
-    let action: () -> Void
     
     @State private var height: CGFloat = 0
     @State private var isFocused = false
@@ -92,5 +90,5 @@ struct TextInputField: View {
 }
 
 #Preview {
-    TextInputField(placeholder: .constant("placeholder"), errorPrompt: .constant("error"), isValid: .constant(false), text: .constant("text"), action: {})
+    TextInputField(placeholder: .constant("placeholder"), errorPrompt: .constant("error"), isValid: .constant(false), text: .constant("text") )
 }
