@@ -56,24 +56,10 @@ struct SignUpScreen: View {
                         }
                     }
                 }
-                
-                PasswordView(text: $manager.user.password, isSecure: $manager.isSecure, hasError: $manager.hasError) {
-                    manager.validatePassword()
-                    
-                    print(manager.user)
-                    if !manager.hasError {
-                        isRegistering = true
-                        Task {
-                            try await manager.loadCreateUser()
-                            isRegistering = false
-                            guard !manager.hasError else {
-                                return
-                            }
-                            session.register()
-                        }
-                    }
-                }
                 .tag(AuthManager.Screen.password)
+                .onChange(of: manager.user.password) {
+                    manager.validatePassword()
+                }
                 
             }
             .animation(.easeInOut, value: manager.active)

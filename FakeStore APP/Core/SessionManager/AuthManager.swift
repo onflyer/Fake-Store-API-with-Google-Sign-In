@@ -75,8 +75,14 @@ final class AuthManager: ObservableObject {
     }
     
     func validatePassword() {
-        hasError = user.password.isEmpty || user.password.count < 4
-        validationError = user.password.isEmpty || user.password.count < 4 ? .emptyPassword : nil
+        isNotValid = user.password.isEmpty || user.password.count < 4
+        if user.password.isEmpty {
+            validationError = .emptyPassword
+        } else if user.password.count < 4 {
+            validationError = .passwordLessThan4
+        } else {
+            validationError = nil
+        }
     }
     
     func createUser() async throws {
@@ -137,6 +143,7 @@ extension AuthManager {
         case emptyName
         case emptyEmail
         case emptyPassword
+        case passwordLessThan4
         case notAnEmail
         
         var errorDescription: String? {
@@ -146,9 +153,11 @@ extension AuthManager {
             case .emptyEmail:
                 return "Email cannot be empty!!!"
             case .emptyPassword:
-                return "Password cannot be empty and must contain at least 4 characters!!!"
+                return "Password cannot be empty!!!"
             case .notAnEmail:
                 return "Email must be in correct format!!!"
+            case .passwordLessThan4:
+                return "Password must contain at least 4 characters"
             }
         }
     }
