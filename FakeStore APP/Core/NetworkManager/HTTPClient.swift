@@ -33,6 +33,22 @@ extension NetworkError: LocalizedError {
             return NSLocalizedString("Something went wrong \(error)", comment: "custom")
         }
     }
+    var message: String? {
+        switch self {
+        case .badRequest:
+        return "Seems like your network connection is down"
+        case .serverError(let string):
+        return "server error"
+        case .decodingError:
+        return "seems like problem with decoding data"
+        case .invalidResponse:
+        return "Invalid response"
+        case .invalidStatusCode(let statusCode):
+        return "Seems like email and password are inaccurate"
+        case .custom(let error):
+            return "custom"
+        }
+    }
 }
 
 enum HTTPMethod {

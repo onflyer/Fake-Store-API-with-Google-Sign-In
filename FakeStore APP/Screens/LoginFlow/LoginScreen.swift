@@ -68,6 +68,14 @@ struct LoginScreen: View {
             }
         }
         .animation(.easeInOut, value: isRegistering)
+        .alert(isPresented: $manager.hasError, error: manager.networkError) { error in
+            Button("OK", role: .cancel) {
+                
+            }
+        } message: { message in
+            Text(message.message!)
+        }
+
 
     }
 }
