@@ -25,20 +25,10 @@ struct LoginScreen: View {
             Image("logo")
                 .padding(.bottom)
             
-            CustomTextField(text: $manager.login.email, placeholder: "Enter your email", hasError: $manager.hasError )
-                .overlay {
-                    RoundedRectangle(cornerRadius: 12)
-                        .stroke(manager.hasError ? .red.opacity(0.6) : .black.opacity(0.0), lineWidth: 2)
-                    if manager.hasError {
-                        Text("Email cannot be empty and must be valid email")
-                            .foregroundStyle(.red.opacity(0.6))
-                            .font(.footnote)
-                            .offset(x: -81, y: 37)
-                    }
-                }
+            TextInputField(placeholder: "Enter your email", errorPrompt: $manager.validationError, isNotValid: $manager.isNotValid, text: $manager.login.email)
                 .padding(.horizontal)
             
-            CustomSecureField(text: $manager.login.password, isSecure: $manager.isSecure, hasError: $manager.hasError, placeholder: "Enter your password")
+            TextInputSecureField(placeholder: "Enter your password", errorPrompt: $manager.validationError, isNotValid: $manager.isNotValid, isSecure: $manager.isSecure, text: $manager.login.password)
                 .padding(.horizontal)
             
             Button("Login") {
@@ -46,7 +36,7 @@ struct LoginScreen: View {
                 manager.validateLoginPassword()
                 
                 print(manager.login)
-                if !manager.hasError {
+                if !manager.isNotValid {
                     isRegistering = true
                     Task {
                         try await manager.login()

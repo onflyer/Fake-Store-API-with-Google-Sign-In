@@ -65,13 +65,26 @@ final class AuthManager: ObservableObject {
     }
     
     func validateLoginEmail()  {
-        hasError = login.email.isEmpty || !login.email.isValidEmail
-        validationError = login.email.isEmpty ? .emptyEmail : nil
+        isNotValid = login.email.isEmpty || !login.email.isValidEmail
+        if login.email.isEmpty {
+            validationError = .emptyEmail
+        } else if !login.email.isValidEmail {
+            validationError = .notAnEmail
+        } else {
+            validationError = nil
+        }
+
     }
     
     func validateLoginPassword() {
-        hasError = login.password.isEmpty || login.password.count < 4
-        validationError = login.password.isEmpty || user.password.count < 4 ? .emptyPassword : nil
+        isNotValid = login.password.isEmpty || login.password.count < 4
+        if login.password.isEmpty {
+            validationError = .emptyPassword
+        } else if login.password.count < 4 {
+            validationError = .passwordLessThan4
+        } else {
+            validationError = nil
+        }
     }
     
     func validatePassword() {
