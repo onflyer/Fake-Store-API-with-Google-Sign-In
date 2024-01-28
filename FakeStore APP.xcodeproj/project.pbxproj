@@ -41,6 +41,7 @@
 		3B995CDD2B59D13800E97DD7 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B995CDC2B59D13800E97DD7 /* Auth.swift */; };
 		3BB45C952B658BA800D20081 /* NameView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB45C942B658BA800D20081 /* NameView1.swift */; };
 		3BB45C972B65AEBD00D20081 /* EmailView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB45C962B65AEBD00D20081 /* EmailView1.swift */; };
+		3BB45C992B66B97100D20081 /* TextInputSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB45C982B66B97100D20081 /* TextInputSecureField.swift */; };
 		3BF26F132B5DA3DA00DFDF2B /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF26F122B5DA3DA00DFDF2B /* Extension+String.swift */; };
 		3BF26F1C2B5EEEAA00DFDF2B /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF26F1B2B5EEEAA00DFDF2B /* HomeScreenViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -81,6 +82,7 @@
 		3B995CDC2B59D13800E97DD7 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		3BB45C942B658BA800D20081 /* NameView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameView1.swift; sourceTree = "<group>"; };
 		3BB45C962B65AEBD00D20081 /* EmailView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView1.swift; sourceTree = "<group>"; };
+		3BB45C982B66B97100D20081 /* TextInputSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputSecureField.swift; sourceTree = "<group>"; };
 		3BF26F122B5DA3DA00DFDF2B /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 		3BF26F1B2B5EEEAA00DFDF2B /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -165,6 +167,7 @@
 				3B0BB7002B545E9B00D6882F /* NameView.swift */,
 				3BB45C942B658BA800D20081 /* NameView1.swift */,
 				3B798F352B618AC400E07E9A /* TextInputField.swift */,
+				3BB45C982B66B97100D20081 /* TextInputSecureField.swift */,
 				3B801F582B619CE5007FD851 /* ValidationTextField.swift */,
 				3B801F5A2B61A45D007FD851 /* ValidationSecureField.swift */,
 				3B801F5C2B61AE61007FD851 /* trytextfield.swift */,
@@ -341,6 +344,7 @@
 				3B8BC8472B570D7B00A21F6B /* Endpoint.swift in Sources */,
 				3B0BB6FB2B544BDC00D6882F /* CachedImageManager.swift in Sources */,
 				3B0BB6D12B52C5E300D6882F /* SessionManager.swift in Sources */,
+				3BB45C992B66B97100D20081 /* TextInputSecureField.swift in Sources */,
 				3B0BB6D72B52CA3200D6882F /* OnboardingScreen.swift in Sources */,
 				3B0BB6E02B52EA5A00D6882F /* OnboardingItem.swift in Sources */,
 				3B995CDD2B59D13800E97DD7 /* Auth.swift in Sources */,
