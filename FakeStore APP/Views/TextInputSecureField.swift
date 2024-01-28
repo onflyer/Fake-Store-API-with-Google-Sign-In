@@ -8,17 +8,15 @@
 import SwiftUI
 
 struct TextInputSecureField: View {
-    let placeholder: String
     
+    let placeholder: String
     @Binding var errorPrompt: AuthManager.RegistrationError?
     @Binding var isNotValid: Bool
     @Binding var isSecure: Bool
-    
     @Binding var text: String
-    
     @State private var height: CGFloat = 0
-    
     @FocusState var isFocused :Bool
+    
     var body: some View {
         VStack(alignment: .leading) {
             ZStack(alignment: .leading) {
@@ -31,40 +29,39 @@ struct TextInputSecureField: View {
                 
                 ZStack {
                     if isSecure {
-                     SecureField("", text: $text)
+                        SecureField("", text: $text)
                     } else {
-                     TextField("", text: $text)
+                        TextField("", text: $text)
                     }
                 }
-                    .focused($isFocused)
-                
-                    .padding()
-                    .overlay(alignment: .trailing) {
-                        Button(action: {
-                                        isSecure.toggle()
-                                    }) {
-                                        Image(systemName: isSecure ? "eye.slash" : "eye")
-                                            .foregroundColor(.gray)
-                                    }
-                                    .padding(.trailing, 8)
-                                
+                .focused($isFocused)
+                .padding()
+                .overlay(alignment: .trailing) {
+                    Button(action: {
+                        isSecure.toggle()
+                    }) {
+                        Image(systemName: isSecure ? "eye.slash" : "eye")
+                            .foregroundColor(.gray)
                     }
+                    .padding(.trailing, 8)
+                    
+                }
                 
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 12)
-                            .stroke(isFocused ? Color.blue : Color(.secondarySystemBackground), lineWidth: 2)
-                    )
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 12)
-                            .stroke(isNotValid ? Color.red : Color.clear, lineWidth: 2)
-                    )
-                    .background(
-                        GeometryReader { geometry in
-                            Color(.clear).onAppear {
-                                height = geometry.size.height
-                            }
+                .overlay(
+                    RoundedRectangle(cornerRadius: 12)
+                        .stroke(isFocused ? Color.blue : Color(.secondarySystemBackground), lineWidth: 2)
+                )
+                .overlay(
+                    RoundedRectangle(cornerRadius: 12)
+                        .stroke(isNotValid ? Color.red : Color.clear, lineWidth: 2)
+                )
+                .background(
+                    GeometryReader { geometry in
+                        Color(.clear).onAppear {
+                            height = geometry.size.height
                         }
-                    )
+                    }
+                )
             }
             .background {
                 Color(.secondarySystemBackground)
