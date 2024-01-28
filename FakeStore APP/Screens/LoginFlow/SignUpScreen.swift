@@ -40,6 +40,23 @@ struct SignUpScreen: View {
                         manager.validateEmail()
                     }
                 
+                PasswordView1(placeholder: "Please enter your password", errorPrompt: $manager.validationError, isNotValid: $manager.isNotValid, isSecure: $manager.isSecure, text: $manager.user.password) {
+                    manager.validatePassword()
+                    
+                    print(manager.user)
+                    if !manager.isNotValid {
+                        isRegistering = true
+                        Task {
+                            try await manager.loadCreateUser()
+                            isRegistering = false
+                            guard !manager.hasError else {
+                                return
+                            }
+                            session.register()
+                        }
+                    }
+                }
+                
                 PasswordView(text: $manager.user.password, isSecure: $manager.isSecure, hasError: $manager.hasError) {
                     manager.validatePassword()
                     
