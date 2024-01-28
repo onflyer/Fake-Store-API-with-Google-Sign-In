@@ -13,6 +13,6 @@ final class OnboardingManager: ObservableObject {
     
     func load() {
         items = [.init(title: "Welcome to Fake Store Platzi"),
-                 .init(title: "Make your purchase feel at home")]
+                 .init(title: "Feel free to browse")]
     }
 }

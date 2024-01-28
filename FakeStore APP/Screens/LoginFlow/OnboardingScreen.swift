@@ -15,48 +15,53 @@ struct OnboardingScreen: View {
     var body: some View {
         ZStack {
             
-            Color.green.opacity(0.5).ignoresSafeArea()
+            Color("darkblue").opacity(0.95).ignoresSafeArea()
             
-            if !manager.items.isEmpty {
-                
-                TabView {
+                if !manager.items.isEmpty {
                     
-                    ForEach(manager.items) { item in
-                        OnboardingView(item: item)
-                            .onAppear {
-                                if item == manager.items.last {
-                                    withAnimation(.easeInOut) {
-                                       showButton = true
+                    Image("logo")
+                        .padding(.bottom, 350)
+                    
+                    TabView {
+                        
+                        ForEach(manager.items) { item in
+                            OnboardingView(item: item)
+                                .onAppear {
+                                    if item == manager.items.last {
+                                        withAnimation(.easeInOut) {
+                                            showButton = true
+                                        }
                                     }
                                 }
-                            }
-                            .overlay(alignment: .bottom) {
-                                if showButton {
-                                    Button("Next") {
-                                        action()
+                                .overlay(alignment: .bottom) {
+                                    if showButton {
+                                        Button("Next") {
+                                            action()
+                                        }
+                                        .frame(width: 200, height: 56)
+                                        .foregroundStyle(.black.opacity(0.5))
+                                        .background(Color.white)
+                                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                                        .offset(y: 70)
+                                        .transition(.scale.combined(with: .opacity))
+                                        .padding(.vertical, -40)
+                                        
+                                        
                                     }
-                                    .frame(width: 200, height: 56)
-                                    .foregroundStyle(.green.opacity(0.5))
-                                    .background(Color.white)
-                                    .clipShape(RoundedRectangle(cornerRadius: 12))
-                                    .offset(y: 70)
-                                    .transition(.scale.combined(with: .opacity))
                                     
-                                
+                                    
+                                    
                                 }
-                                
-                                
-
-                            }
                         }
+                        
+                    }
+                    .tabViewStyle(.page)
+                    .indexViewStyle(.page(backgroundDisplayMode: .always))
+                    
+                    
                     
                 }
-                .tabViewStyle(.page)
-                .indexViewStyle(.page(backgroundDisplayMode: .always))
-                
-                
-
-            }
+            
         }
         .onAppear {
             manager.load()

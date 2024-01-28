@@ -12,13 +12,15 @@ struct OnboardingView: View {
     let item: OnboardingItem
     
     var body: some View {
-        VStack {
-            Text(item.title)
-        }
-       
+        VStack(alignment: .center) {
+                Text(item.title)
+                    .foregroundStyle(.white)
+                    .font(.system(size: 40, weight: .heavy, design: .rounded))
+                    .multilineTextAlignment(.center)
+            }
     }
 }
 
 #Preview {
-    OnboardingView(item: .init(title: "Preview item"))
+    OnboardingView(item: .init(title: "Preview Item"))
 }

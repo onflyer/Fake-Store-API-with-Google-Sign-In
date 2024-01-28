@@ -37,15 +37,15 @@ extension NetworkError: LocalizedError {
         switch self {
         case .badRequest:
         return "Seems like your network connection is down"
-        case .serverError(let string):
+        case .serverError(_):
         return "server error"
         case .decodingError:
         return "seems like problem with decoding data"
         case .invalidResponse:
         return "Invalid response"
-        case .invalidStatusCode(let statusCode):
+        case .invalidStatusCode(_):
         return "Seems like email and password are inaccurate"
-        case .custom(let error):
+        case .custom(_):
             return "custom"
         }
     }
@@ -77,7 +77,7 @@ struct Resource <T:Codable> {
 struct HTTPClient {
     
     private var defaultHeaders: [String: String] {
-        var headers = ["Content-Type": "application/json", "Accept": "application/json"]
+        let headers = ["Content-Type": "application/json", "Accept": "application/json"]
         return headers
     }
     

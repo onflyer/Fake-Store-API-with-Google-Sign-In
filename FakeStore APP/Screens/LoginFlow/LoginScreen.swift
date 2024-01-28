@@ -31,7 +31,7 @@ struct LoginScreen: View {
             TextInputSecureField(placeholder: "Enter your password", errorPrompt: $manager.validationError, isNotValid: $manager.isNotValid, isSecure: $manager.isSecure, text: $manager.login.password)
                 .padding(.horizontal)
             
-            Button("Login") {
+            Button {
                 manager.validateLoginEmail()
                 manager.validateLoginPassword()
                 
@@ -47,13 +47,19 @@ struct LoginScreen: View {
                         session.signIn()
                     }
                 }
+                
+            } label: {
+                Text("Login")
+                    .foregroundStyle(.white)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 56)
+                    .background(Color.green)
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                    .padding()
             }
-            .foregroundStyle(.white)
-            .frame(width: 200, height: 56)
-            .background(Color.green)
-            .clipShape(RoundedRectangle(cornerRadius: 12))
-            .padding()
         }
+
+
         
         
         
