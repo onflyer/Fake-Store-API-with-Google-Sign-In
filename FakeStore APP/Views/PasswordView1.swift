@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PasswordView1: View {
     let placeholder: String
-    @Binding var errorPrompt: AuthManager.RegistrationError?
+    @Binding var errorPrompt: AuthManager.LoginError?
     @Binding var isNotValid: Bool
     @Binding var isSecure: Bool
     @Binding var text : String

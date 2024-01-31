@@ -17,63 +17,73 @@ struct LoginScreen: View {
     var body: some View {
         
         ZStack {
-            Color.clear.ignoresSafeArea()
-        VStack(alignment: .center, spacing: 10) {
-            Text("Welcome")
-                .font(.system(size: 40, weight: .heavy, design: .rounded))
-                .foregroundStyle(.black.opacity(0.3))
-            Image("logo")
-                .padding(.bottom)
-            
-            TextInputField(placeholder: "Enter your email", errorPrompt: $manager.validationError, isNotValid: $manager.isNotValid, text: $manager.login.email)
-                .padding(.horizontal)
-            
-            TextInputSecureField(placeholder: "Enter your password", errorPrompt: $manager.validationError, isNotValid: $manager.isNotValid, isSecure: $manager.isSecure, text: $manager.login.password)
-                .padding(.horizontal)
-            
-            Button {
-                manager.validateLoginEmail()
-                manager.validateLoginPassword()
+            Color("darkblue").opacity(0.95).ignoresSafeArea()
+            VStack(alignment: .center, spacing: 10) {
                 
-                print(manager.login)
-                if !manager.isNotValid {
-                    isRegistering = true
-                    Task {
-                        try await manager.login()
-                        isRegistering = false
-                        guard !manager.hasError else {
-                            return
-                        }
-                        session.signIn()
-                    }
-                }
+                Image("logo")
+                    .padding(.bottom)
                 
-            } label: {
-                Text("Login")
+                Text("Welcome")
+                    .font(.system(size: 40, weight: .heavy, design: .rounded))
                     .foregroundStyle(.white)
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 56)
-                    .background(Color.green)
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
-                    .padding()
+                    .padding(.bottom, 10)
+                    .offset(y: -20)
+                
+                VStack {
+                    
+                    
+                    TextInputField(placeholder: "Enter your email", errorPrompt: $manager.validationError, isNotValid: $manager.isNotValid, text: $manager.login.email)
+                        .padding(.horizontal)
+                        .padding(.bottom, 15)
+                        
+                    
+                    TextInputSecureField(placeholder: "Enter your password", errorPrompt: $manager.loginError, isNotValid: $manager.isNotValid, isSecure: $manager.isSecure, text: $manager.login.password)
+                        .padding(.horizontal)
+                        
+                        
+                    
+                    Button {
+                        manager.validateLoginEmail()
+                        manager.validateLoginPassword()
+                        
+                        print(manager.login)
+                        if !manager.isNotValid {
+                            isRegistering = true
+                            Task {
+                                try await manager.login()
+                                isRegistering = false
+                                guard !manager.hasError else {
+                                    return
+                                }
+                                session.signIn()
+                            }
+                        }
+                        
+                    } label: {
+                        Text("Login")
+                            .foregroundStyle(.white)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 56)
+                            .background(Color("appgreen"))
+                            .clipShape(RoundedRectangle(cornerRadius: 12))
+                            .overlay {
+                                if isRegistering {
+                                ProgressView()
+                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                        .background(Color("appgreen"))
+                                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                                }
+                            }
+                            .padding(.horizontal)
+                            .padding(.top, 30)
+
+                        
+                    }
+
+                }
             }
         }
-
-
-        
-        
-        
-        
-        
-    }
-        .overlay {
-            if isRegistering {
-                Color.black.opacity(0.4).ignoresSafeArea()
-                ProgressView()
-                    .tint(.white)
-            }
-        }
-        .animation(.easeInOut, value: isRegistering)
+    
         .alert(isPresented: $manager.hasError, error: manager.networkError) { error in
             Button("OK", role: .cancel) {
                 

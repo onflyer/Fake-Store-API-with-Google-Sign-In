@@ -30,7 +30,8 @@ final class AuthManager: ObservableObject {
     
     @Published var hasError: Bool = false
     @Published var validationError: RegistrationError?
-    @Published var errorPrompt: String = ""
+    @Published var loginError: LoginError?
+   
 
     
     @Published var networkError: NetworkError?
@@ -79,22 +80,22 @@ final class AuthManager: ObservableObject {
     func validateLoginPassword() {
         isNotValid = login.password.isEmpty || login.password.count < 4
         if login.password.isEmpty {
-            validationError = .emptyPassword
+            loginError = .emptyPassword
         } else if login.password.count < 4 {
-            validationError = .passwordLessThan4
+            loginError = .passwordLessThan4
         } else {
-            validationError = nil
+            loginError = nil
         }
     }
     
     func validatePassword() {
         isNotValid = user.password.isEmpty || user.password.count < 4
         if user.password.isEmpty {
-            validationError = .emptyPassword
+            loginError = .emptyPassword
         } else if user.password.count < 4 {
-            validationError = .passwordLessThan4
+            loginError = .passwordLessThan4
         } else {
-            validationError = nil
+            loginError = nil
         }
     }
     
@@ -153,6 +154,29 @@ final class AuthManager: ObservableObject {
 
 extension AuthManager {
     enum RegistrationError: LocalizedError {
+        case emptyName
+        case emptyEmail
+        case emptyPassword
+        case passwordLessThan4
+        case notAnEmail
+        
+        var errorDescription: String? {
+            switch self {
+            case .emptyName:
+                return "Name cannot be empty!!!"
+            case .emptyEmail:
+                return "Email cannot be empty!!!"
+            case .emptyPassword:
+                return "Password cannot be empty!!!"
+            case .notAnEmail:
+                return "Email must be in correct format!!!"
+            case .passwordLessThan4:
+                return "Password must contain at least 4 characters"
+            }
+        }
+    }
+    
+    enum LoginError: LocalizedError {
         case emptyName
         case emptyEmail
         case emptyPassword
