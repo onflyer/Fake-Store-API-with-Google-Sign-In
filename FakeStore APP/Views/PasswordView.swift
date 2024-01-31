@@ -20,7 +20,7 @@ struct PasswordView: View {
             VStack {
              Image(systemName: "person.badge.key")
                     .resizable()
-                    .frame(width: 100, height: 100)
+                    .frame(width: 200, height: 100)
                     .foregroundStyle(.white)
             Text("Password")
                     .font(.system(size: 30,weight: .bold, design: .rounded))

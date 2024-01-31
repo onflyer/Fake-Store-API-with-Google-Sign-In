@@ -21,7 +21,7 @@ struct NameView1: View {
             Color("darkblue").opacity(0.95).ignoresSafeArea()
             VStack {
                 ZStack {
-                    Image(systemName: "person.crop.rectangle.badge.plus")
+                    Image(systemName: "person.crop.rectangle.badge.plus.fill")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 200, height: 100)

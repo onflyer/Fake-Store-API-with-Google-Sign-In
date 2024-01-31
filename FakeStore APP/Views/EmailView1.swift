@@ -18,28 +18,33 @@ struct EmailView1: View {
     
     var body: some View {
         ZStack {
-            Color.green.opacity(0.5).ignoresSafeArea()
+            Color("darkblue").opacity(0.95).ignoresSafeArea()
             VStack {
-             Image(systemName: "envelope")
+             Image(systemName: "person.crop.square.filled.and.at.rectangle.fill")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 100, height: 100)
-                    .foregroundStyle(.white)
-            Text("Email")
+                    .frame(width: 200, height: 100)
+                    .foregroundStyle(Color("appgreen"))
+                
+            Text("Your email...")
                     .font(.system(size: 30,weight: .bold, design: .rounded))
                     .foregroundStyle(.white)
+                    .padding(.bottom, 30)
                 
+                ZStack {
                     TextInputField(placeholder: "Enter your email", errorPrompt: $errorPrompt, isNotValid: $isNotValid, text: $text)
-                    .padding(.horizontal)
+                        .padding(.horizontal)
+                }
+                .frame(height: 50)
                 
                 Button("Next") {
                    action()
                 }
-                .foregroundStyle(.green.opacity(0.5))
+                .foregroundStyle(.primary.opacity(0.5))
                 .frame(width: 200, height: 56)
                 .background(Color.white)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
-                .padding(.top)
+                .padding(.top, 20)
                 
             }
         }
