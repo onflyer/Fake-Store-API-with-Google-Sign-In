@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+@MainActor
+final class HomeScreenViewModel: ObservableObject {
+    
+    let httpClient: HTTPClient
+    
+    init(httpClient: HTTPClient) {
+        self.httpClient = httpClient
+    }
+}

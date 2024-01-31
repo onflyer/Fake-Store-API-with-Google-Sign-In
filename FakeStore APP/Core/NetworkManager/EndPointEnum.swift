@@ -7,6 +7,35 @@
 
 import Foundation
 
+enum EndPointEnum: String, CaseIterable {
+    case all
+    case chlothes
+    case electronics
+    case furniture
+    case shoes
+    case miscellaneous
+  
+    
+    var path: String {
+        switch self {
+        case .all:
+            return "https://api.escuelajs.co/api/v1/products/"
+        case .chlothes:
+            return "https://api.escuelajs.co/api/v1/categories/1"
+        case .electronics:
+            return "https://api.escuelajs.co/api/v1/categories/2"
+        case .furniture:
+            return "https://api.escuelajs.co/api/v1/categories/3"
+        case .shoes:
+            return "https://api.escuelajs.co/api/v1/categories/4"
+        case .miscellaneous:
+            return "https://api.escuelajs.co/api/v1/categories/5"
+        
+        }
+    }
+}
+
+
 struct Endpoint {
     
     private static let baseUrl = "https://api.escuelajs.co/api/v1"

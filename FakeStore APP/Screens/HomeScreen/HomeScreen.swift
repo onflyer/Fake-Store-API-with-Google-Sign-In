@@ -9,22 +9,38 @@ import SwiftUI
 
 struct HomeScreen: View {
     @EnvironmentObject var session: SessionManager
+    @State private var pickedCategory: EndPointEnum = .all
+    init() {
+      // Large Navigation Title
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+   
+    }
     
     var body: some View {
-        VStack {
-            Text("Home screen")
-            
-            Button("Sign out") {
-                session.signOut()
+        NavigationStack {
+            ZStack {
+                Color("darkblue").opacity(0.95).ignoresSafeArea()
+                VStack {
+                    
+                    
+                    
+                      
+                    
+                }
+                .navigationTitle("Fake Store Platzi")
+               
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button(action: {
+                            session.signOut()
+                        }, label: {
+                            Text("Log out")
+                        })
+                    }
             }
-            .foregroundStyle(.white)
-                .frame(width: 200, height: 56)
-                .background(Color.green)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
-              
-            
+            }
         }
-        .padding()
+
     }
 }
 

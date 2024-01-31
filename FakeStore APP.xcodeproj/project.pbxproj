@@ -32,11 +32,12 @@
 		3B0BB6FF2B544BE100D6882F /* CachedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0BB6FE2B544BE100D6882F /* CachedImage.swift */; };
 		3B0BB7012B545E9B00D6882F /* NameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0BB7002B545E9B00D6882F /* NameView.swift */; };
 		3B0BB7032B5706EB00D6882F /* CreateUserResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0BB7022B5706EB00D6882F /* CreateUserResponseDTO.swift */; };
+		3B33F2942B6A894500A2B7C2 /* CategoryResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B33F2932B6A894500A2B7C2 /* CategoryResponseDTO.swift */; };
 		3B798F362B618AC400E07E9A /* TextInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B798F352B618AC400E07E9A /* TextInputField.swift */; };
 		3B801F592B619CE5007FD851 /* ValidationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B801F582B619CE5007FD851 /* ValidationTextField.swift */; };
 		3B801F5B2B61A45D007FD851 /* ValidationSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B801F5A2B61A45D007FD851 /* ValidationSecureField.swift */; };
 		3B801F5D2B61AE61007FD851 /* trytextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B801F5C2B61AE61007FD851 /* trytextfield.swift */; };
-		3B8BC8472B570D7B00A21F6B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8BC8462B570D7B00A21F6B /* Endpoint.swift */; };
+		3B8BC8472B570D7B00A21F6B /* EndPointEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8BC8462B570D7B00A21F6B /* EndPointEnum.swift */; };
 		3B8BC8492B5712F300A21F6B /* DeleteProductResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8BC8482B5712F300A21F6B /* DeleteProductResponseDTO.swift */; };
 		3B995CDD2B59D13800E97DD7 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B995CDC2B59D13800E97DD7 /* Auth.swift */; };
 		3BB45C952B658BA800D20081 /* NameView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB45C942B658BA800D20081 /* NameView1.swift */; };
@@ -74,11 +75,12 @@
 		3B0BB6FE2B544BE100D6882F /* CachedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedImage.swift; sourceTree = "<group>"; };
 		3B0BB7002B545E9B00D6882F /* NameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameView.swift; sourceTree = "<group>"; };
 		3B0BB7022B5706EB00D6882F /* CreateUserResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserResponseDTO.swift; sourceTree = "<group>"; };
+		3B33F2932B6A894500A2B7C2 /* CategoryResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryResponseDTO.swift; sourceTree = "<group>"; };
 		3B798F352B618AC400E07E9A /* TextInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputField.swift; sourceTree = "<group>"; };
 		3B801F582B619CE5007FD851 /* ValidationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationTextField.swift; sourceTree = "<group>"; };
 		3B801F5A2B61A45D007FD851 /* ValidationSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationSecureField.swift; sourceTree = "<group>"; };
 		3B801F5C2B61AE61007FD851 /* trytextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trytextfield.swift; sourceTree = "<group>"; };
-		3B8BC8462B570D7B00A21F6B /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		3B8BC8462B570D7B00A21F6B /* EndPointEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointEnum.swift; sourceTree = "<group>"; };
 		3B8BC8482B5712F300A21F6B /* DeleteProductResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteProductResponseDTO.swift; sourceTree = "<group>"; };
 		3B995CDC2B59D13800E97DD7 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		3BB45C942B658BA800D20081 /* NameView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameView1.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				3B0BB7022B5706EB00D6882F /* CreateUserResponseDTO.swift */,
 				3B8BC8482B5712F300A21F6B /* DeleteProductResponseDTO.swift */,
 				3B995CDC2B59D13800E97DD7 /* Auth.swift */,
+				3B33F2932B6A894500A2B7C2 /* CategoryResponseDTO.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -224,7 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				3B0BB6F22B54481700D6882F /* HTTPClient.swift */,
-				3B8BC8462B570D7B00A21F6B /* Endpoint.swift */,
+				3B8BC8462B570D7B00A21F6B /* EndPointEnum.swift */,
 			);
 			path = NetworkManager;
 			sourceTree = "<group>";
@@ -345,7 +348,7 @@
 				3B0BB6D52B52C78300D6882F /* MainAppScreen.swift in Sources */,
 				3BB45C952B658BA800D20081 /* NameView1.swift in Sources */,
 				3B0BB6E62B52FB1500D6882F /* PasswordView.swift in Sources */,
-				3B8BC8472B570D7B00A21F6B /* Endpoint.swift in Sources */,
+				3B8BC8472B570D7B00A21F6B /* EndPointEnum.swift in Sources */,
 				3B0BB6FB2B544BDC00D6882F /* CachedImageManager.swift in Sources */,
 				3B0BB6D12B52C5E300D6882F /* SessionManager.swift in Sources */,
 				3BB45C992B66B97100D20081 /* TextInputSecureField.swift in Sources */,
@@ -362,6 +365,7 @@
 				3B0BB6FF2B544BE100D6882F /* CachedImage.swift in Sources */,
 				3B0BB6B22B52A1C800D6882F /* FakeStore_APPApp.swift in Sources */,
 				3B0BB6CE2B52B4A200D6882F /* CustomSecureField.swift in Sources */,
+				3B33F2942B6A894500A2B7C2 /* CategoryResponseDTO.swift in Sources */,
 				3B0BB6C42B52A51600D6882F /* LoginScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
