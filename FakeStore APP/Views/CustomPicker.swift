@@ -11,13 +11,16 @@ struct CustomPicker: View {
     @Binding var pickedCategory: EndPointEnum
     var body: some View {
             ScrollView(.horizontal) {
-                LazyHStack {
+                LazyHStack(spacing: 0) {
                     ForEach(EndPointEnum.allCases, id: \.self) { category in
                         Button(action: {
                             pickedCategory = category
                         }, label: {
-                            Text(category.rawValue)
-                            
+                                Text(category.rawValue)
+                                    .foregroundStyle(.white)
+                                    .padding()
+                                    .frame(height: 50)
+                                    .background(Color(.gray).opacity(0.7))
                         })
                     
                 }
