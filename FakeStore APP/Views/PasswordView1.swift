@@ -13,7 +13,7 @@ struct PasswordView1: View {
     @Binding var isNotValid: Bool
     @Binding var isSecure: Bool
     @Binding var text : String
-    
+    @Binding var isRegistering: Bool
     let action: () -> Void
     
     var body: some View {
@@ -45,7 +45,16 @@ struct PasswordView1: View {
                 .foregroundStyle(.primary.opacity(0.5))
                 .background(Color.white)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
+                .overlay {
+                    if isRegistering {
+                    ProgressView()
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .background(.white)
+                            .clipShape(RoundedRectangle(cornerRadius: 12))
+                    }
+                }
                 .padding(.top, 20)
+
                 
                 
             }
@@ -54,5 +63,5 @@ struct PasswordView1: View {
 }
 
 #Preview {
-    PasswordView1(placeholder: "placeholder", errorPrompt: .constant(.emptyPassword), isNotValid: .constant(true), isSecure: .constant(false), text: .constant("text"), action: {})
+    PasswordView1(placeholder: "placeholder", errorPrompt: .constant(.emptyPassword), isNotValid: .constant(true), isSecure: .constant(false), text: .constant("text"), isRegistering: .constant(true), action: {})
 }

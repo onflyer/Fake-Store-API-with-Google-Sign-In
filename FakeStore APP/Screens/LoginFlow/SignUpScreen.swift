@@ -40,7 +40,7 @@ struct SignUpScreen: View {
                         manager.validateEmail()
                     }
                 
-                PasswordView1(placeholder: "Please enter your password", errorPrompt: $manager.validationError, isNotValid: $manager.isNotValid, isSecure: $manager.isSecure, text: $manager.user.password) {
+                PasswordView1(placeholder: "Please enter your password", errorPrompt: $manager.validationError, isNotValid: $manager.isNotValid, isSecure: $manager.isSecure, text: $manager.user.password, isRegistering: $isRegistering) {
                     manager.validatePassword()
                     
                     print(manager.user)
@@ -65,13 +65,13 @@ struct SignUpScreen: View {
             .animation(.easeInOut, value: manager.active)
             .tabViewStyle(.page(indexDisplayMode: .never))
         }
-        .overlay {
-            if isRegistering {
-                Color.black.opacity(0.4).ignoresSafeArea()
-                ProgressView()
-                    .tint(.white)
-            }
-        }
+//        .overlay {
+//            if isRegistering {
+//                Color.black.opacity(0.4).ignoresSafeArea()
+//                ProgressView()
+//                    .tint(.white)
+//            }
+//        }
         .animation(.easeInOut, value: isRegistering)
 
         .ignoresSafeArea()
