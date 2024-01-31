@@ -21,7 +21,7 @@ struct HomeScreen: View {
             ZStack {
                 Color("darkblue").opacity(0.95).ignoresSafeArea()
                 VStack {
-                    
+                
                     
                     
                       

@@ -33,6 +33,7 @@
 		3B0BB7012B545E9B00D6882F /* NameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0BB7002B545E9B00D6882F /* NameView.swift */; };
 		3B0BB7032B5706EB00D6882F /* CreateUserResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0BB7022B5706EB00D6882F /* CreateUserResponseDTO.swift */; };
 		3B33F2942B6A894500A2B7C2 /* CategoryResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B33F2932B6A894500A2B7C2 /* CategoryResponseDTO.swift */; };
+		3B33F2962B6A96AC00A2B7C2 /* CustomPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B33F2952B6A96AC00A2B7C2 /* CustomPicker.swift */; };
 		3B798F362B618AC400E07E9A /* TextInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B798F352B618AC400E07E9A /* TextInputField.swift */; };
 		3B801F592B619CE5007FD851 /* ValidationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B801F582B619CE5007FD851 /* ValidationTextField.swift */; };
 		3B801F5B2B61A45D007FD851 /* ValidationSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B801F5A2B61A45D007FD851 /* ValidationSecureField.swift */; };
@@ -76,6 +77,7 @@
 		3B0BB7002B545E9B00D6882F /* NameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameView.swift; sourceTree = "<group>"; };
 		3B0BB7022B5706EB00D6882F /* CreateUserResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserResponseDTO.swift; sourceTree = "<group>"; };
 		3B33F2932B6A894500A2B7C2 /* CategoryResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryResponseDTO.swift; sourceTree = "<group>"; };
+		3B33F2952B6A96AC00A2B7C2 /* CustomPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPicker.swift; sourceTree = "<group>"; };
 		3B798F352B618AC400E07E9A /* TextInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputField.swift; sourceTree = "<group>"; };
 		3B801F582B619CE5007FD851 /* ValidationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationTextField.swift; sourceTree = "<group>"; };
 		3B801F5A2B61A45D007FD851 /* ValidationSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationSecureField.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				3B801F582B619CE5007FD851 /* ValidationTextField.swift */,
 				3B801F5A2B61A45D007FD851 /* ValidationSecureField.swift */,
 				3B801F5C2B61AE61007FD851 /* trytextfield.swift */,
+				3B33F2952B6A96AC00A2B7C2 /* CustomPicker.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				3B0BB6EC2B5304E900D6882F /* User.swift in Sources */,
 				3B0BB7032B5706EB00D6882F /* CreateUserResponseDTO.swift in Sources */,
 				3BF26F1C2B5EEEAA00DFDF2B /* HomeScreenViewModel.swift in Sources */,
+				3B33F2962B6A96AC00A2B7C2 /* CustomPicker.swift in Sources */,
 				3B801F5B2B61A45D007FD851 /* ValidationSecureField.swift in Sources */,
 				3B8BC8492B5712F300A21F6B /* DeleteProductResponseDTO.swift in Sources */,
 				3B801F5D2B61AE61007FD851 /* trytextfield.swift in Sources */,
