@@ -25,44 +25,57 @@ struct HomeScreen: View {
                 VStack {
                 CustomPicker(pickedCategory: $pickedCategory)
                 Spacer()
-                    ScrollView {
-                        LazyVGrid(columns: columns, spacing: 20) {
-                            ForEach(viewmodel.products) { product in
-                                ZStack {
-                                    Color.white
-                                        .clipShape(RoundedRectangle(cornerRadius: 20))
-                                    VStack {
-                                        CachedImage(url: product.image ) { phase in
-                                            switch phase {
-                                            case .empty:
-                                                ProgressView()
-                                            case .success(let image):
-                                                image
-                                                    .resizable()
-                                                    .scaledToFit()
-                                            case .failure(_):
-                                                Image(systemName: "xmark")
-                                                    .resizable()
-                                            @unknown default:
-                                                EmptyView()
-                                            }
-
-                                        }
-                                        .padding(.top)
-                                        Text(product.title)
-                                            .foregroundStyle(Color("darkblue"))
-                                            .lineLimit(1)
-                                            .padding(10)
-                                        
-                                    }
-                                }
-                                .frame(width: 180, height: 180)
+                    if viewmodel.isLoading {
+                        ZStack {
+                            Color("darkblue").opacity(0.95).ignoresSafeArea()
                                 
-                              
-                                
-                            }
+                                ProgressView()
+                                    .tint(Color.white)
+                            
+                            .foregroundStyle(.white)
+                            
                         }
                         
+                    } else {
+                        ScrollView {
+                            LazyVGrid(columns: columns, spacing: 20) {
+                                ForEach(viewmodel.products) { product in
+                                    ZStack {
+                                        Color.white
+                                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                                        VStack {
+                                            CachedImage(url: product.image ) { phase in
+                                                switch phase {
+                                                case .empty:
+                                                    ProgressView()
+                                                case .success(let image):
+                                                    image
+                                                        .resizable()
+                                                        .scaledToFit()
+                                                case .failure(_):
+                                                    Image(systemName: "xmark")
+                                                        .resizable()
+                                                @unknown default:
+                                                    EmptyView()
+                                                }
+                                                
+                                            }
+                                            .padding(.top)
+                                            Text(product.title)
+                                                .foregroundStyle(Color("darkblue"))
+                                                .lineLimit(1)
+                                                .padding(10)
+                                            
+                                        }
+                                    }
+                                    .frame(width: 180, height: 180)
+                                    
+                                    
+                                    
+                                }
+                            }
+                            
+                        }
                     }
                    
                     
@@ -85,7 +98,12 @@ struct HomeScreen: View {
             }
             }
             .task {
-                await viewmodel.loadProducts()
+                await viewmodel.loadProducts(endpointURL: pickedCategory)
+            }
+            .onChange(of: pickedCategory) {
+                Task {
+                    await viewmodel.loadProducts(endpointURL: pickedCategory)
+                }
             }
         }
 

@@ -16,20 +16,24 @@ final class HomeScreenViewModel: ObservableObject {
         self.httpClient = httpClient
     }
     
-   @Published var products: [ProductsResponseDTO] = []
+    @Published var products: [ProductsResponseDTO] = []
+    @Published var isLoading: Bool = false
     
     
-    func fetchProducts() async throws {
-        let url = Resource(url: URL(string: EndPointEnum.All.path)!, method: .get([]), modelType: [ProductsResponseDTO].self )
+    func fetchProducts(endpointURL: EndPointEnum) async throws {
+        let url = Resource(url: URL(string: endpointURL.path)!, method: .get([]), modelType: [ProductsResponseDTO].self )
         
         let productResults = try await httpClient.load(url)
         products = productResults
+
     }
     
-    func loadProducts() async {
+    func loadProducts(endpointURL: EndPointEnum) async {
         do {
-            try await self.fetchProducts()
+            self.isLoading = true
+            try await self.fetchProducts(endpointURL: endpointURL)
             print(products)
+            self.isLoading = false
         } catch {
             print(error)
         }
