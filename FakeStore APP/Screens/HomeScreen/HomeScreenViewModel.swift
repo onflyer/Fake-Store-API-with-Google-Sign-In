@@ -32,10 +32,10 @@ final class HomeScreenViewModel: ObservableObject {
         do {
             self.isLoading = true
             try await self.fetchProducts(endpointURL: endpointURL)
-            print(products)
             self.isLoading = false
         } catch {
             print(error)
         }
+        
     }
 }

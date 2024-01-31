@@ -28,9 +28,8 @@ struct HomeScreen: View {
                     if viewmodel.isLoading {
                         ZStack {
                             Color("darkblue").opacity(0.95).ignoresSafeArea()
-                                
                                 ProgressView()
-                                    .tint(Color.white)
+                                .tint(Color.white)
                             
                             .foregroundStyle(.white)
                             
