@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeScreen: View {
     @EnvironmentObject var session: SessionManager
-    @State private var pickedCategory: EndPointEnum = .all
+    @State private var pickedCategory: EndPointEnum = .All
     init() {
       // Large Navigation Title
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
@@ -21,7 +21,11 @@ struct HomeScreen: View {
             ZStack {
                 Color("darkblue").opacity(0.95).ignoresSafeArea()
                 VStack {
-                
+                CustomPicker(pickedCategory: $pickedCategory)
+                       
+                       
+                Spacer()
+                        
                     
                     
                       

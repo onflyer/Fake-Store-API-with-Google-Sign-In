@@ -10,26 +10,33 @@ import SwiftUI
 struct CustomPicker: View {
     @Binding var pickedCategory: EndPointEnum
     var body: some View {
-            ScrollView(.horizontal) {
+            ScrollView(.horizontal,showsIndicators: false) {
                 LazyHStack(spacing: 0) {
                     ForEach(EndPointEnum.allCases, id: \.self) { category in
                         Button(action: {
-                            pickedCategory = category
+                            withAnimation {
+                                pickedCategory = category
+                            }
                         }, label: {
-                                Text(category.rawValue)
-                                    .foregroundStyle(.white)
-                                    .padding()
-                                    .frame(height: 50)
-                                    .background(Color(.gray).opacity(0.7))
+                            Text(category.rawValue)
+                                .padding()
+                                .frame(height: 50)
+                                .background(pickedCategory == category ? Color.white : Color.clear)
+                                .foregroundStyle(pickedCategory == category ? Color("darkblue") : Color.white)
+                                .cornerRadius(pickedCategory == category ? 12 : 0)
                         })
-                    
+                        
+                        
+                    }
                 }
-                }
+                .frame(height: 50)
+                .padding(5)
+                .background(Color("darkblue"))
 
         }
     }
 }
 
 #Preview {
-    CustomPicker(pickedCategory: .constant(.all))
+    CustomPicker(pickedCategory: .constant(.All))
 }

@@ -8,27 +8,27 @@
 import Foundation
 
 enum EndPointEnum: String, CaseIterable {
-    case all
-    case chlothes
-    case electronics
-    case furniture
-    case shoes
-    case miscellaneous
+    case All
+    case Chlothes
+    case Electronics
+    case Furniture
+    case Shoes
+    case Miscellaneous
   
     
     var path: String {
         switch self {
-        case .all:
+        case .All:
             return "https://api.escuelajs.co/api/v1/products/"
-        case .chlothes:
+        case .Chlothes:
             return "https://api.escuelajs.co/api/v1/categories/1"
-        case .electronics:
+        case .Electronics:
             return "https://api.escuelajs.co/api/v1/categories/2"
-        case .furniture:
+        case .Furniture:
             return "https://api.escuelajs.co/api/v1/categories/3"
-        case .shoes:
+        case .Shoes:
             return "https://api.escuelajs.co/api/v1/categories/4"
-        case .miscellaneous:
+        case .Miscellaneous:
             return "https://api.escuelajs.co/api/v1/categories/5"
         
         }
