@@ -18,33 +18,44 @@ struct NameView1: View {
     
     var body: some View {
         ZStack {
-            Color.green.opacity(0.5).ignoresSafeArea()
+            Color("darkblue").opacity(0.95).ignoresSafeArea()
             VStack {
-             Image(systemName: "person.crop.circle.badge.plus")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 100, height: 100)
-                    .foregroundStyle(.white)
+                ZStack {
+                    Image(systemName: "person.crop.rectangle.badge.plus")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 200, height: 100)
+                    .foregroundStyle(Color("appgreen"))
+                }
+                .offset(x: -10)
+                .frame(maxWidth: .infinity)
+                
                     
-            Text("Name")
+                    
+            Text("What's your name")
                     .font(.system(size: 30,weight: .bold, design: .rounded))
                     .foregroundStyle(.white)
+                    .padding(.bottom, 30)
+                    .multilineTextAlignment(.center)
                 
                 ZStack {
-                
-                        TextInputField(placeholder: placeholder, errorPrompt: $errorPrompt, isNotValid: $isNotValid,text: $text)
+                TextInputField(placeholder: placeholder, errorPrompt: $errorPrompt, isNotValid: $isNotValid,text: $text)
                 }
-                .frame(height: 70)
+                .frame(height: 50)
+                
+                
+                
+            
               
                
                 Button("Next") {
                     action()
                 }
-                .foregroundStyle(.green.opacity(0.5))
+                .foregroundStyle(.primary.opacity(0.5))
                 .frame(width: 200, height: 56)
                 .background(Color.white)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
-                .padding(.top)
+                .padding(.top, 20)
 
                     }
                     .padding(.horizontal)

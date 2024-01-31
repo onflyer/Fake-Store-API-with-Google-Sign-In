@@ -49,7 +49,7 @@ struct TextInputSecureField: View {
                 
                 .overlay(
                     RoundedRectangle(cornerRadius: 12)
-                        .stroke(isFocused ? Color.blue : Color(.secondarySystemBackground), lineWidth: 2)
+                        .stroke(isFocused ? Color.cyan : Color(.secondarySystemBackground), lineWidth: 2)
                 )
                 .overlay(
                     RoundedRectangle(cornerRadius: 12)

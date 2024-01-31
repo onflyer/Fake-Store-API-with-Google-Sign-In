@@ -23,7 +23,7 @@ struct TextInputField: View {
         VStack(alignment: .leading) {
             ZStack(alignment: .leading) {
                 Text(placeholder)
-                    .foregroundColor(text.isEmpty ? Color(.placeholderText) : .accentColor)
+                    .foregroundColor(text.isEmpty ? Color(.placeholderText) : Color("appgreen"))
                     .offset(x: text.isEmpty ? 0 : -16, y: text.isEmpty ? 0 : -height * 0.85)
                     .scaleEffect(text.isEmpty ? 1: 0.9, anchor: .leading)
                     .padding()
@@ -36,7 +36,7 @@ struct TextInputField: View {
                 
                     .overlay(
                         RoundedRectangle(cornerRadius: 12)
-                            .stroke(isFocused ? Color.blue : Color(.secondarySystemBackground), lineWidth: 2)
+                            .stroke(isFocused ? Color("appgreen").opacity(3) : Color(.secondarySystemBackground), lineWidth: 2)
                     )
                     .overlay(
                         RoundedRectangle(cornerRadius: 12)
