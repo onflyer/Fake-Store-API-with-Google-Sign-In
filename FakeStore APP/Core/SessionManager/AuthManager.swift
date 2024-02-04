@@ -27,6 +27,7 @@ final class AuthManager: ObservableObject {
     @Published var login = LoginUser(email: "", password: "")
     @Published var isSecure = true
     @Published var isNotValid = false
+    @Published var passNotValid = false
     
     @Published var hasError: Bool = false
     @Published var validationError: RegistrationError?
@@ -78,7 +79,7 @@ final class AuthManager: ObservableObject {
     }
     
     func validateLoginPassword() {
-        isNotValid = login.password.isEmpty || login.password.count < 4
+        passNotValid = login.password.isEmpty || login.password.count < 4
         if login.password.isEmpty {
             loginError = .emptyPassword
         } else if login.password.count < 4 {

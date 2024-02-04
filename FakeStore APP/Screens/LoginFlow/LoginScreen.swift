@@ -47,7 +47,7 @@ struct LoginScreen: View {
                         manager.validateLoginPassword()
                         
                         print(manager.login)
-                        if !manager.isNotValid {
+                        if !manager.isNotValid && !manager.passNotValid {
                             isRegistering = true
                             Task {
                                 try await manager.login()
