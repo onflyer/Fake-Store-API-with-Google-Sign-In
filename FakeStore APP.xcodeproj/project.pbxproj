@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		308128332C221FA400CE9C65 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 308128322C221FA400CE9C65 /* GoogleSignIn */; };
+		308128352C221FA400CE9C65 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 308128342C221FA400CE9C65 /* GoogleSignInSwift */; };
 		3B0BB6B22B52A1C800D6882F /* FakeStore_APPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0BB6B12B52A1C800D6882F /* FakeStore_APPApp.swift */; };
 		3B0BB6B42B52A1C800D6882F /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0BB6B32B52A1C800D6882F /* HomeScreen.swift */; };
 		3B0BB6B62B52A1C900D6882F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B0BB6B52B52A1C900D6882F /* Assets.xcassets */; };
@@ -51,6 +53,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		308128362C22223400CE9C65 /* FakeStore-APP-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "FakeStore-APP-Info.plist"; sourceTree = SOURCE_ROOT; };
 		3B0BB6AE2B52A1C800D6882F /* FakeStore APP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FakeStore APP.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B0BB6B12B52A1C800D6882F /* FakeStore_APPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeStore_APPApp.swift; sourceTree = "<group>"; };
 		3B0BB6B32B52A1C800D6882F /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
@@ -100,6 +103,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				308128332C221FA400CE9C65 /* GoogleSignIn in Frameworks */,
+				308128352C221FA400CE9C65 /* GoogleSignInSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +130,7 @@
 		3B0BB6B02B52A1C800D6882F /* FakeStore APP */ = {
 			isa = PBXGroup;
 			children = (
+				308128362C22223400CE9C65 /* FakeStore-APP-Info.plist */,
 				3B0BB6BF2B52A35000D6882F /* App */,
 				3B0BB6C02B52A35700D6882F /* Core */,
 				3B0BB6C22B52A4E000D6882F /* Screens */,
@@ -282,6 +288,10 @@
 			dependencies = (
 			);
 			name = "FakeStore APP";
+			packageProductDependencies = (
+				308128322C221FA400CE9C65 /* GoogleSignIn */,
+				308128342C221FA400CE9C65 /* GoogleSignInSwift */,
+			);
 			productName = "FakeStore APP";
 			productReference = 3B0BB6AE2B52A1C800D6882F /* FakeStore APP.app */;
 			productType = "com.apple.product-type.application";
@@ -310,6 +320,9 @@
 				Base,
 			);
 			mainGroup = 3B0BB6A52B52A1C800D6882F;
+			packageReferences = (
+				308128312C221FA400CE9C65 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+			);
 			productRefGroup = 3B0BB6AF2B52A1C800D6882F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -511,6 +524,7 @@
 				DEVELOPMENT_TEAM = FQWAP959Y3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "FakeStore-APP-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -540,6 +554,7 @@
 				DEVELOPMENT_TEAM = FQWAP959Y3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "FakeStore-APP-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -580,6 +595,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		308128312C221FA400CE9C65 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		308128322C221FA400CE9C65 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 308128312C221FA400CE9C65 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		308128342C221FA400CE9C65 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 308128312C221FA400CE9C65 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3B0BB6A62B52A1C800D6882F /* Project object */;
 }

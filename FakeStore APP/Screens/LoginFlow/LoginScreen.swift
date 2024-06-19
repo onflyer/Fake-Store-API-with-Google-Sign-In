@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import GoogleSignInSwift
+import GoogleSignIn
 
 struct LoginScreen: View {
     @EnvironmentObject var session: SessionManager
@@ -79,7 +81,39 @@ struct LoginScreen: View {
 
                         
                     }
-
+                    
+                    Button(action: {
+                        isRegistering = true
+                        session.googleSignIn()
+                        isRegistering = false
+                    } , label: {
+                        HStack {
+                            Image("g")
+                                .resizable()
+                                .scaledToFit()
+                                .padding(.vertical)
+                            Text("Sign in with Google")
+                                .foregroundStyle(.black)
+                            
+                        }
+                           
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 56)
+                                .background(Color(uiColor: .systemBackground))
+                                .clipShape(RoundedRectangle(cornerRadius: 12))
+                           
+                                .overlay {
+                                    if isRegistering {
+                                    ProgressView()
+                                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                            .background(Color("appgreen"))
+                                            .clipShape(RoundedRectangle(cornerRadius: 12))
+                                    }
+                                }
+                                .padding(.horizontal)
+                            .padding(.top, 10)
+                        
+                    })
                 }
             }
         }
