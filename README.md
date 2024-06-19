@@ -2,7 +2,8 @@ Complete onboarding flow connected to fake store API with proper validation
 
 
 <img src="https://github.com/onflyer/FakeStore-APP/assets/114020060/ddaa5a5d-9dfa-4c96-8d5c-40e48a338c81" width="30%" height="30%">
-<img src="https://github.com/onflyer/Fake-Store-API/assets/114020060/c5cc222b-2f5b-44f3-b069-78f4801ccda5" width="30%" height="30%">
+<img src="https://github.com/onflyer/Fake-Store-API/assets/114020060/2dd78858-e281-4978-8a10-008f723d810d" width="30%" height="30%">
+
 
 <img src="https://github.com/onflyer/FakeStore-APP/assets/114020060/509e2e59-ab77-499b-92c1-135d2be86e4b" width="30%" height="30%">
 <img src="https://github.com/onflyer/FakeStore-APP/assets/114020060/262762a2-ca57-4dc4-956a-54eef40123dd" width="30%" height="30%">
