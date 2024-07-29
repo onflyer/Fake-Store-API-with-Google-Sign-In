@@ -32,9 +32,6 @@ final class AuthManager: ObservableObject {
     @Published var hasError: Bool = false
     @Published var validationError: RegistrationError?
     @Published var loginError: LoginError?
-   
-
-    
     @Published var networkError: NetworkError?
     
     func next() {

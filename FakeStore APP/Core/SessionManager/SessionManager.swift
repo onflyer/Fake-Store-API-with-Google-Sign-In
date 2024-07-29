@@ -14,6 +14,7 @@ final class SessionManager: ObservableObject {
       
        @Published var isLoggedIn: Bool = false
        @Published var errorMessage: String = ""
+       @Published private (set) var currentState: CurrentState?
     
     func checkStatus() {
             if(GIDSignIn.sharedInstance.currentUser != nil){
@@ -65,7 +66,7 @@ final class SessionManager: ObservableObject {
         case signUp
     }
     
-    @Published private (set) var currentState: CurrentState?
+   
     
     func signIn() {
         currentState = .loggedIn
@@ -85,7 +86,6 @@ final class SessionManager: ObservableObject {
     }
     
     func configureCurrentState() {
-        
         /**
          - User closes the app during the onboarding phase > Resume the app from the onboarding screens
          - User closes the app during the sign up phase > Resume the app from the sign up screens

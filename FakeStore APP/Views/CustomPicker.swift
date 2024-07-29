@@ -13,6 +13,7 @@ struct CustomPicker: View {
             ScrollView(.horizontal,showsIndicators: false) {
                 LazyHStack(spacing: 0) {
                     ForEach(EndPointEnum.allCases, id: \.self) { category in
+                        
                         Button(action: {
                             withAnimation {
                                 pickedCategory = category
@@ -24,16 +25,18 @@ struct CustomPicker: View {
                                 .background(pickedCategory == category ? Color.white : Color.clear)
                                 .foregroundStyle(pickedCategory == category ? Color("darkblue") : Color.white)
                                 .cornerRadius(pickedCategory == category ? 12 : 0)
+                                
                         })
-                        
+                        .containerRelativeFrame(.horizontal, count: 3, spacing: 0)
                         
                     }
                 }
                 .frame(height: 50)
                 .padding(5)
                 .background(Color("darkblue"))
-
+               
         }
+           
     }
 }
 
